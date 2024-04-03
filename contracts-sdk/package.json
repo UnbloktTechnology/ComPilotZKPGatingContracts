@@ -1,5 +1,5 @@
 {
-  "version": "1.2.6",
+  "version": "1.2.7",
   "name": "@nexeraprotocol/nexera-id-zkp-gating-contracts-sdk",
   "main": "dist/nexeraprotocol-nexera-id-zkp-gating-contracts-sdk.cjs.js",
   "module": "dist/nexeraprotocol-nexera-id-zkp-gating-contracts-sdk.esm.js",
@@ -11,7 +11,6 @@
     "lint": "prettier --write src/**/**.ts",
     "lint:check": "prettier --check src/**/**.ts"
   },
-
   "repository": {
     "type": "git",
     "url": "https://github.com/NexeraProtocol/NexeraIDZkpGatingContracts.git",
