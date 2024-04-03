@@ -1,0 +1,51 @@
+{
+  "name": "nexeraid-zkp-gating-contracts",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "engines": {
+    "node": ">=20.11.0",
+    "pnpm": ">=8.10.2"
+  },
+  "packageManager": "pnpm@8.10.2",
+  "author": "",
+  "workspaces": [
+    "zkp-gating-contracts",
+    "contracts-sdk"
+  ],
+  "preconstruct": {
+    "packages": [
+      "zkp-gating-contracts",
+      "contracts-sdk"
+    ]
+  },
+  "pnpm": {
+    "overrides": {
+      "hardhat-deploy": "0.11.12",
+      "hardhat-deploy-ethers": "0.3.0-beta.13"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "@babel/preset-react": "^7.23.3",
+    "@babel/preset-typescript": "^7.23.3",
+    "@preconstruct/cli": "^2.8.3",
+    "copyfiles": "^2.4.1",
+    "lerna": "^8.1.2"
+  },
+  "publishConfig": {
+    "@NexeraProtocol:registry": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "lint": "pnpm -r lint",
+    "lint:check": "pnpm -r lint:check",
+    "postinstall": "pnpm run build:contracts && pnpm run build:contracts-sdk",
+    "build:contracts": "pnpm run --filter @nexeraprotocol/nexera-id-zkp-gating-contracts build",
+    "build:contracts-sdk": "pnpm run --filter @nexeraprotocol/nexera-id-zkp-gating-contracts-sdk build",
+    "publish-pkg:contracts": "pnpm --filter @nexeraprotocol/nexera-id-zkp-gating-contracts publish --no-git-checks --registry https://npm.pkg.github.com/",
+    "publish-pkg:sdk": "pnpm --filter @nexeraprotocol/nexera-id-zkp-gating-contracts-sdk publish-sdk-pkg",
+    "test:unit": "pnpm run --filter @nexeraprotocol/nexera-id-zkp-gating-contracts test:seq",
+    "deploy-contracts": "pnpm --filter @nexeraprotocol/nexera-id-zkp-gating-contracts deploy-contracts"
+  }
+}

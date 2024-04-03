@@ -1,0 +1,3 @@
+packages:
+  - "zkp-gating-contracts"
+  - "contracts-sdk"
