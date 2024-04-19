@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.20;
+pragma solidity ^0.8.20;
 
 import {Proxy} from "@openzeppelin/contracts/proxy/Proxy.sol";
 import "../interfaces/INexeraVerifierEntrypoint.sol";
@@ -8,7 +8,7 @@ import "../interfaces/INexeraVerifierEntrypoint.sol";
 /// @notice This example contract acts as a proxy for interacting with the Aave Pool,
 /// integrating with the Nexera entrypoint verifier for gating users.
 contract ProxyAavePool is Proxy {
-    // Address of the Aave Pool on the Mumbai network.
+    // Address of the Aave Pool on the Amoy network.
     address public constant aavePoolAddress =
         0xcC6114B983E4Ed2737E9BD3961c9924e6216c704;
 

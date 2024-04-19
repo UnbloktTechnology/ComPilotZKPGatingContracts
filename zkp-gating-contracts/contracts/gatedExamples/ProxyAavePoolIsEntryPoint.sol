@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.20;
+pragma solidity ^0.8.20;
 
 import {Proxy} from "@openzeppelin/contracts/proxy/Proxy.sol";
 import "../zkpVerifiers/NexeraVerifierEntrypoint.sol";
 
 /// @title ProxyAavePoolIsEntryPoint
-/// @notice This contract acts as a proxy to the Aave Pool on the Mumbai network, integrating with the Nexera verifier for user verification.
+/// @notice This contract acts as a proxy to the Aave Pool on the Amoy network, integrating with the Nexera verifier for user verification.
 contract ProxyAavePoolIsEntryPoint is Proxy, NexeraVerifierEntrypoint {
-    // Address of the Aave Pool on the Mumbai network.
+    // Address of the Aave Pool on the Amoy network.
     address public constant aavePoolAddress =
         0xcC6114B983E4Ed2737E9BD3961c9924e6216c704;
 
