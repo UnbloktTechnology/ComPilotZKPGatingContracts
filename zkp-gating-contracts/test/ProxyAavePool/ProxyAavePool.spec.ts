@@ -16,7 +16,8 @@ import { setupThreeAccounts } from "../utils/fundAccounts";
 const aavePoolAddress = "0xcC6114B983E4Ed2737E9BD3961c9924e6216c704";
 const testWETHAddress = "0xc199807AF4fEDB02EE567Ed0FeB814A077de4802";
 
-describe(`ProxyAavePool`, function () {
+//TODO: reactivate this tests when we have the address of contracts on Amoy
+describe.skip(`ProxyAavePool`, function () {
   let scenarioVerifier: ScenarioVerifier;
   let entrypointVerifier: NexeraVerifierEntrypoint;
   let proxyAavePool: ProxyAavePool;

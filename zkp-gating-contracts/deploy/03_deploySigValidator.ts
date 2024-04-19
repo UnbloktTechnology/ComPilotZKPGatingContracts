@@ -22,7 +22,7 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
   console.log(
     VerifierSigWrapper.address,
     ONCHAIN_VERIFICATION_CONTRACTS[
-      networkName.includes("polygon_main") ? "137" : "80001"
+      networkName.includes("polygon_main") ? "137" : "80002"
     ].STATE_ADDRESS
   );
   console.log(`\n--------------------------------------------------------`);
@@ -40,7 +40,7 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
           args: [
             VerifierSigWrapper.address,
             ONCHAIN_VERIFICATION_CONTRACTS[
-              networkName.includes("polygon_main") ? "137" : "80001"
+              networkName.includes("polygon_main") ? "137" : "80002"
             ].STATE_ADDRESS,
           ],
         },

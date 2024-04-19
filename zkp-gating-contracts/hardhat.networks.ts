@@ -27,7 +27,7 @@ export const networks: NetworksUserConfig = {
   },
   amoy_prod: {
     live: true,
-    chainId: 80001,
+    chainId: 80002,
     url: `${AMOY_PROVIDER_URL}`,
     accounts: { mnemonic: DEPLOYMENT_MNEMONIC },
   },
@@ -46,7 +46,7 @@ export const networks: NetworksUserConfig = {
   },
   amoy_staging: {
     live: true,
-    chainId: 80001,
+    chainId: 80002,
     url: `${AMOY_PROVIDER_URL}`,
     accounts: { mnemonic: DEPLOYMENT_MNEMONIC },
   },
@@ -65,7 +65,7 @@ export const networks: NetworksUserConfig = {
   },
   amoy_dev: {
     live: true,
-    chainId: 80001,
+    chainId: 80002,
     url: `${AMOY_PROVIDER_URL}`,
     accounts: { mnemonic: DEPLOYMENT_MNEMONIC },
   },
