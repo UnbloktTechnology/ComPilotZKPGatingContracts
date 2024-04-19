@@ -1,0 +1,1046 @@
+{
+  "address": "0x1E57309b1e26A104afD507dcDB46b7233d070378",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidInitialization",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NotInitializing",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableInvalidOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableUnauthorizedAccount",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "userAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "userId",
+          "type": "uint256"
+        }
+      ],
+      "name": "AddressIdConnection",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "version",
+          "type": "uint64"
+        }
+      ],
+      "name": "Initialized",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferStarted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "requestId",
+          "type": "uint64"
+        }
+      ],
+      "name": "RequestRegistered",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "userAddress",
+          "type": "address"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint64",
+              "name": "requestId",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "inputs",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "uint256[2]",
+              "name": "a",
+              "type": "uint256[2]"
+            },
+            {
+              "internalType": "uint256[2][2]",
+              "name": "b",
+              "type": "uint256[2][2]"
+            },
+            {
+              "internalType": "uint256[2]",
+              "name": "c",
+              "type": "uint256[2]"
+            }
+          ],
+          "indexed": false,
+          "internalType": "struct IScenarioVerifier.ZKP[]",
+          "name": "zkps",
+          "type": "tuple[]"
+        }
+      ],
+      "name": "SubmitedAllZKPsForUser",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "userAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "requestId",
+          "type": "uint64"
+        }
+      ],
+      "name": "UserAllowedForRequest",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "userAddress",
+          "type": "address"
+        }
+      ],
+      "name": "UserAllowedForScenario",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "requestId",
+          "type": "uint64"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        },
+        {
+          "indexed": false,
+          "internalType": "contract ICircuitValidator",
+          "name": "validator",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "metadata",
+          "type": "string"
+        }
+      ],
+      "name": "ZKPRequestSet",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "REQUESTS_RETURN_LIMIT",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "acceptOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "addressToId",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint64",
+              "name": "requestId",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "inputs",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "uint256[2]",
+              "name": "a",
+              "type": "uint256[2]"
+            },
+            {
+              "internalType": "uint256[2][2]",
+              "name": "b",
+              "type": "uint256[2][2]"
+            },
+            {
+              "internalType": "uint256[2]",
+              "name": "c",
+              "type": "uint256[2]"
+            }
+          ],
+          "internalType": "struct IScenarioVerifier.ZKP[]",
+          "name": "zkps",
+          "type": "tuple[]"
+        }
+      ],
+      "name": "allowUserForScenario",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "finalizeAllowListScenario",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint64",
+          "name": "requestId",
+          "type": "uint64"
+        }
+      ],
+      "name": "getZKPRequest",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "metadata",
+              "type": "string"
+            },
+            {
+              "internalType": "contract ICircuitValidator",
+              "name": "validator",
+              "type": "address"
+            },
+            {
+              "internalType": "bytes",
+              "name": "data",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct IZKPVerifier.ZKPRequest",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "startIndex",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "length",
+          "type": "uint256"
+        }
+      ],
+      "name": "getZKPRequests",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "metadata",
+              "type": "string"
+            },
+            {
+              "internalType": "contract ICircuitValidator",
+              "name": "validator",
+              "type": "address"
+            },
+            {
+              "internalType": "bytes",
+              "name": "data",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct IZKPVerifier.ZKPRequest[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getZKPRequestsCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "idToAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "isAllowedForScenario",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "internalType": "uint64",
+          "name": "requestID",
+          "type": "uint64"
+        }
+      ],
+      "name": "isProofSubmitted",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "name": "isRuleIdRegistered",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pendingOwner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "queryRequestWhitelist",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "registeredRuleIDs",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint64",
+          "name": "requestId",
+          "type": "uint64"
+        }
+      ],
+      "name": "requestIdExists",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "scenarioAllowList",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint64",
+          "name": "requestId",
+          "type": "uint64"
+        },
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "metadata",
+              "type": "string"
+            },
+            {
+              "internalType": "contract ICircuitValidator",
+              "name": "validator",
+              "type": "address"
+            },
+            {
+              "internalType": "bytes",
+              "name": "data",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct IZKPVerifier.ZKPRequest",
+          "name": "request",
+          "type": "tuple"
+        }
+      ],
+      "name": "setNexeraZKPRequest",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint64",
+          "name": "requestId",
+          "type": "uint64"
+        },
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "metadata",
+              "type": "string"
+            },
+            {
+              "internalType": "contract ICircuitValidator",
+              "name": "validator",
+              "type": "address"
+            },
+            {
+              "internalType": "bytes",
+              "name": "data",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct IZKPVerifier.ZKPRequest",
+          "name": "request",
+          "type": "tuple"
+        }
+      ],
+      "name": "setZKPRequest",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint64",
+          "name": "requestId",
+          "type": "uint64"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "inputs",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "uint256[2]",
+          "name": "a",
+          "type": "uint256[2]"
+        },
+        {
+          "internalType": "uint256[2][2]",
+          "name": "b",
+          "type": "uint256[2][2]"
+        },
+        {
+          "internalType": "uint256[2]",
+          "name": "c",
+          "type": "uint256[2]"
+        }
+      ],
+      "name": "submitZKPResponse",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xc0090f3823e4fd783898063d3168a53a406b90820ad5d68041285d5e4a963a7f",
+  "receipt": {
+    "to": null,
+    "from": "0x0BAd9DaD98143b2E946e8A40E4f27537be2f55E2",
+    "contractAddress": "0x1E57309b1e26A104afD507dcDB46b7233d070378",
+    "transactionIndex": 5,
+    "gasUsed": "1946115",
+    "logsBloom": "0x00000000088000000000000000000000000000000000000000000000000080000200000000000000000000000000000000008000000000000000000000000000000000080000000000000000000000800000000000000000000100000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000800000000000000000000000080000000000000000000200000000800000000000000000000000000000000000000000000000000004000000000000000000001000000000000000000010004040000120000000000000000000000000000000000000000000000000000000000000000000000100000",
+    "blockHash": "0xc8c469e452c4b7d92260cda7e30e63b35542219e6e5fc3fc60838223a7f7cf2d",
+    "transactionHash": "0xc0090f3823e4fd783898063d3168a53a406b90820ad5d68041285d5e4a963a7f",
+    "logs": [
+      {
+        "transactionIndex": 5,
+        "blockNumber": 6044333,
+        "transactionHash": "0xc0090f3823e4fd783898063d3168a53a406b90820ad5d68041285d5e4a963a7f",
+        "address": "0x1E57309b1e26A104afD507dcDB46b7233d070378",
+        "topics": [
+          "0xc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d2"
+        ],
+        "data": "0x000000000000000000000000000000000000000000000000ffffffffffffffff",
+        "logIndex": 10,
+        "blockHash": "0xc8c469e452c4b7d92260cda7e30e63b35542219e6e5fc3fc60838223a7f7cf2d"
+      },
+      {
+        "transactionIndex": 5,
+        "blockNumber": 6044333,
+        "transactionHash": "0xc0090f3823e4fd783898063d3168a53a406b90820ad5d68041285d5e4a963a7f",
+        "address": "0x0000000000000000000000000000000000001010",
+        "topics": [
+          "0x4dfe1bbbcf077ddc3e01291eea2d5c70c2b422b415d95645b9adcfd678cb1d63",
+          "0x0000000000000000000000000000000000000000000000000000000000001010",
+          "0x0000000000000000000000000bad9dad98143b2e946e8a40e4f27537be2f55e2",
+          "0x0000000000000000000000006ab3d36c46ecfb9b9c0bd51cb1c3da5a2c81cea6"
+        ],
+        "data": "0x00000000000000000000000000000000000000000000000001148f4050f141d300000000000000000000000000000000000000000000000534f05addef32eddb0000000000000000000000000000000000000000000000f232f0d152d844c55300000000000000000000000000000000000000000000000533dbcb9d9e41ac080000000000000000000000000000000000000000000000f23405609329360726",
+        "logIndex": 11,
+        "blockHash": "0xc8c469e452c4b7d92260cda7e30e63b35542219e6e5fc3fc60838223a7f7cf2d"
+      }
+    ],
+    "blockNumber": 6044333,
+    "cumulativeGasUsed": "2051115",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "a0a5c08d8a573c8b013e1a01f6f1b520",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"InvalidInitialization\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotInitializing\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"OwnableInvalidOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"OwnableUnauthorizedAccount\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"userAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"userId\",\"type\":\"uint256\"}],\"name\":\"AddressIdConnection\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint64\",\"name\":\"version\",\"type\":\"uint64\"}],\"name\":\"Initialized\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferStarted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint64\",\"name\":\"requestId\",\"type\":\"uint64\"}],\"name\":\"RequestRegistered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"userAddress\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"uint64\",\"name\":\"requestId\",\"type\":\"uint64\"},{\"internalType\":\"uint256[]\",\"name\":\"inputs\",\"type\":\"uint256[]\"},{\"internalType\":\"uint256[2]\",\"name\":\"a\",\"type\":\"uint256[2]\"},{\"internalType\":\"uint256[2][2]\",\"name\":\"b\",\"type\":\"uint256[2][2]\"},{\"internalType\":\"uint256[2]\",\"name\":\"c\",\"type\":\"uint256[2]\"}],\"indexed\":false,\"internalType\":\"struct IScenarioVerifier.ZKP[]\",\"name\":\"zkps\",\"type\":\"tuple[]\"}],\"name\":\"SubmitedAllZKPsForUser\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"userAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint64\",\"name\":\"requestId\",\"type\":\"uint64\"}],\"name\":\"UserAllowedForRequest\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"userAddress\",\"type\":\"address\"}],\"name\":\"UserAllowedForScenario\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint64\",\"name\":\"requestId\",\"type\":\"uint64\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"},{\"indexed\":false,\"internalType\":\"contract ICircuitValidator\",\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"metadata\",\"type\":\"string\"}],\"name\":\"ZKPRequestSet\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"REQUESTS_RETURN_LIMIT\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"acceptOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"addressToId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint64\",\"name\":\"requestId\",\"type\":\"uint64\"},{\"internalType\":\"uint256[]\",\"name\":\"inputs\",\"type\":\"uint256[]\"},{\"internalType\":\"uint256[2]\",\"name\":\"a\",\"type\":\"uint256[2]\"},{\"internalType\":\"uint256[2][2]\",\"name\":\"b\",\"type\":\"uint256[2][2]\"},{\"internalType\":\"uint256[2]\",\"name\":\"c\",\"type\":\"uint256[2]\"}],\"internalType\":\"struct IScenarioVerifier.ZKP[]\",\"name\":\"zkps\",\"type\":\"tuple[]\"}],\"name\":\"allowUserForScenario\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"finalizeAllowListScenario\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"requestId\",\"type\":\"uint64\"}],\"name\":\"getZKPRequest\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"metadata\",\"type\":\"string\"},{\"internalType\":\"contract ICircuitValidator\",\"name\":\"validator\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"internalType\":\"struct IZKPVerifier.ZKPRequest\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"startIndex\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"length\",\"type\":\"uint256\"}],\"name\":\"getZKPRequests\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"metadata\",\"type\":\"string\"},{\"internalType\":\"contract ICircuitValidator\",\"name\":\"validator\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"internalType\":\"struct IZKPVerifier.ZKPRequest[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getZKPRequestsCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"idToAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"isAllowedForScenario\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"requestID\",\"type\":\"uint64\"}],\"name\":\"isProofSubmitted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"}],\"name\":\"isRuleIdRegistered\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pendingOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"queryRequestWhitelist\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"registeredRuleIDs\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"requestId\",\"type\":\"uint64\"}],\"name\":\"requestIdExists\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"scenarioAllowList\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"requestId\",\"type\":\"uint64\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"metadata\",\"type\":\"string\"},{\"internalType\":\"contract ICircuitValidator\",\"name\":\"validator\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"internalType\":\"struct IZKPVerifier.ZKPRequest\",\"name\":\"request\",\"type\":\"tuple\"}],\"name\":\"setNexeraZKPRequest\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"requestId\",\"type\":\"uint64\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"metadata\",\"type\":\"string\"},{\"internalType\":\"contract ICircuitValidator\",\"name\":\"validator\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"internalType\":\"struct IZKPVerifier.ZKPRequest\",\"name\":\"request\",\"type\":\"tuple\"}],\"name\":\"setZKPRequest\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"requestId\",\"type\":\"uint64\"},{\"internalType\":\"uint256[]\",\"name\":\"inputs\",\"type\":\"uint256[]\"},{\"internalType\":\"uint256[2]\",\"name\":\"a\",\"type\":\"uint256[2]\"},{\"internalType\":\"uint256[2][2]\",\"name\":\"b\",\"type\":\"uint256[2][2]\"},{\"internalType\":\"uint256[2]\",\"name\":\"c\",\"type\":\"uint256[2]\"}],\"name\":\"submitZKPResponse\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"errors\":{\"InvalidInitialization()\":[{\"details\":\"The contract is already initialized.\"}],\"NotInitializing()\":[{\"details\":\"The contract is not initializing.\"}],\"OwnableInvalidOwner(address)\":[{\"details\":\"The owner is not a valid owner account. (eg. `address(0)`)\"}],\"OwnableUnauthorizedAccount(address)\":[{\"details\":\"The caller account is not authorized to perform an operation.\"}]},\"events\":{\"AddressIdConnection(address,uint256)\":{\"details\":\"Event emitted when an address is associated with a Polygon ID\"},\"Initialized(uint64)\":{\"details\":\"Triggered when the contract has been initialized or reinitialized.\"},\"RequestRegistered(uint64)\":{\"details\":\"Event emitted when a ZKPRequest is registered in the verifier\"},\"SubmitedAllZKPsForUser(address,(uint64,uint256[],uint256[2],uint256[2][2],uint256[2])[])\":{\"details\":\"Event emitted when all ZKPs for a user are submitted\"},\"UserAllowedForRequest(address,uint64)\":{\"details\":\"Event emitted when a user address is allowed for a request ID\"},\"UserAllowedForScenario(address)\":{\"details\":\"Event emitted when an address is allowed for the scenario verifier\"},\"ZKPRequestSet(uint64,bytes,address,string)\":{\"details\":\"Emitted when a ZKP request is set.\",\"params\":{\"data\":\"The data associated with the ZKP request.\",\"metadata\":\"Metadata associated with the request.\",\"requestId\":\"The ID of the ZKP request.\",\"validator\":\"The circuit validator for the ZKP request.\"}}},\"kind\":\"dev\",\"methods\":{\"acceptOwnership()\":{\"details\":\"The new owner accepts the ownership transfer.\"},\"allowUserForScenario((uint64,uint256[],uint256[2],uint256[2][2],uint256[2])[])\":{\"params\":{\"zkps\":\"Array of ZKPs to submit\"},\"returns\":{\"_0\":\"Boolean indicating the success of the operation\"}},\"finalizeAllowListScenario(address)\":{\"details\":\"Once the user is allowed for all rules, call this function to finalize (this is more gas efficient than iterating over rules on every submission)\",\"params\":{\"user\":\"The address of the user to check\"},\"returns\":{\"_0\":\"isUserWhitelisted True if the user is allowed for all rules\"}},\"initialize(address)\":{\"details\":\"Initialize proxied contract with owner\",\"params\":{\"newOwner\":\"The address of the thing owner\"}},\"isAllowedForScenario(address)\":{\"params\":{\"user\":\"The address of the user to check\"},\"returns\":{\"_0\":\"Boolean indicating if the user is allowed for the scenario\"}},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"pendingOwner()\":{\"details\":\"Returns the address of the pending owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner.\"},\"setNexeraZKPRequest(uint64,(string,address,bytes))\":{\"params\":{\"request\":\"The ZKP request data.\",\"requestId\":\"The ID of the request to be set.\"}},\"transferOwnership(address)\":{\"details\":\"Starts the ownership transfer of the contract to a new account. Replaces the pending transfer if there is one. Can only be called by the current owner.\"}},\"title\":\"ScenarioVerifier\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"allowUserForScenario((uint64,uint256[],uint256[2],uint256[2][2],uint256[2])[])\":{\"notice\":\"Submits all ZKPs and allowlists a user in one call\"},\"finalizeAllowListScenario(address)\":{\"notice\":\"Finalizes the whitelisting of a user for all rules\"},\"isAllowedForScenario(address)\":{\"notice\":\"Checks if a user is allowed for the scenario\"},\"setNexeraZKPRequest(uint64,(string,address,bytes))\":{\"notice\":\"Sets a Nexera ZKP request and emits an event.\"}},\"notice\":\"This contract manages rules for a scenario using ZKP requests, including setting a request for a rule and allowing users who submit the right ZKPs\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/zkpVerifiers/ScenarioVerifier.sol\":\"ScenarioVerifier\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[],\"viaIR\":true},\"sources\":{\"@iden3/contracts/interfaces/ICircuitValidator.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\npragma solidity 0.8.20;\\n\\ninterface ICircuitValidator {\\n    struct KeyToInputIndex {\\n        string key;\\n        uint256 inputIndex;\\n    }\\n\\n    function version() external view returns (string memory);\\n\\n    function verify(\\n        uint256[] memory inputs,\\n        uint256[2] memory a,\\n        uint256[2][2] memory b,\\n        uint256[2] memory c,\\n        bytes calldata data,\\n        address sender\\n    ) external view returns (ICircuitValidator.KeyToInputIndex[] memory);\\n\\n    function getSupportedCircuitIds() external view returns (string[] memory ids);\\n\\n    function inputIndexOf(string memory name) external view returns (uint256);\\n}\\n\",\"keccak256\":\"0xbe98b7af19064e81fda682c7ac82dbbd931a7893ccf3a2aba47de79a00bb7d3e\",\"license\":\"GPL-3.0\"},\"@iden3/contracts/interfaces/IZKPVerifier.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\npragma solidity 0.8.20;\\n\\nimport {ICircuitValidator} from \\\"./ICircuitValidator.sol\\\";\\n\\ninterface IZKPVerifier {\\n    struct ZKPRequest {\\n        string metadata;\\n        ICircuitValidator validator;\\n        bytes data;\\n    }\\n\\n    function submitZKPResponse(\\n        uint64 requestId,\\n        uint256[] memory inputs,\\n        uint256[2] memory a,\\n        uint256[2][2] memory b,\\n        uint256[2] memory c\\n    ) external;\\n\\n    function setZKPRequest(uint64 requestId, ZKPRequest calldata request) external;\\n\\n    function getZKPRequestsCount() external view returns (uint256);\\n\\n    function requestIdExists(uint64 requestId) external view returns (bool);\\n\\n    function getZKPRequest(uint64 requestId) external view returns (ZKPRequest memory);\\n\\n    function getZKPRequests(\\n        uint256 startIndex,\\n        uint256 length\\n    ) external view returns (ZKPRequest[] memory);\\n}\\n\",\"keccak256\":\"0x5db761e69a831627c50c5b3a167565905d20517322acd7c7ed1ebb919183691e\",\"license\":\"GPL-3.0\"},\"@iden3/contracts/lib/ArrayUtils.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\npragma solidity 0.8.20;\\n\\n/// @title A common functions for arrays.\\nlibrary ArrayUtils {\\n    /**\\n     * @dev Calculates bounds for the slice of the array.\\n     * @param arrLength An array length.\\n     * @param start A start index.\\n     * @param length A length of the slice.\\n     * @param limit A limit for the length.\\n     * @return The bounds for the slice of the array.\\n     */\\n    function calculateBounds(\\n        uint256 arrLength,\\n        uint256 start,\\n        uint256 length,\\n        uint256 limit\\n    ) internal pure returns (uint256, uint256) {\\n        require(length > 0, \\\"Length should be greater than 0\\\");\\n        require(length <= limit, \\\"Length limit exceeded\\\");\\n        require(start < arrLength, \\\"Start index out of bounds\\\");\\n\\n        uint256 end = start + length;\\n        if (end > arrLength) {\\n            end = arrLength;\\n        }\\n\\n        return (start, end);\\n    }\\n}\\n\",\"keccak256\":\"0x09a22a4b96ab2fc3043b9f9c74a1e878b8c1986c2811a9d09481a129e4a5a6fd\",\"license\":\"GPL-3.0\"},\"@iden3/contracts/lib/GenesisUtils.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\npragma solidity 0.8.20;\\n\\nimport {PrimitiveTypeUtils} from \\\"./PrimitiveTypeUtils.sol\\\";\\n\\nlibrary GenesisUtils {\\n    /**\\n     *   @dev sum\\n     */\\n    function sum(bytes memory array) internal pure returns (uint16 s) {\\n        require(array.length == 29, \\\"Checksum requires 29 length array\\\");\\n\\n        for (uint256 i = 0; i < array.length; ++i) {\\n            s += uint16(uint8(array[i]));\\n        }\\n    }\\n\\n    /**\\n     * @dev isGenesisState\\n     */\\n    function isGenesisState(uint256 id, uint256 idState) internal pure returns (bool) {\\n        bytes2 idType = bytes2(\\n            PrimitiveTypeUtils.uint256ToBytes(PrimitiveTypeUtils.reverseUint256(id))\\n        );\\n        uint256 computedId = calcIdFromGenesisState(idType, idState);\\n        return id == computedId;\\n    }\\n\\n    /**\\n     * @dev calcIdFromGenesisState\\n     */\\n    function calcIdFromGenesisState(\\n        bytes2 idType,\\n        uint256 idState\\n    ) internal pure returns (uint256) {\\n        bytes memory userStateB1 = PrimitiveTypeUtils.uint256ToBytes(\\n            PrimitiveTypeUtils.reverseUint256(idState)\\n        );\\n\\n        bytes memory cutState = PrimitiveTypeUtils.slice(userStateB1, userStateB1.length - 27, 27);\\n\\n        bytes memory beforeChecksum = PrimitiveTypeUtils.concat(abi.encodePacked(idType), cutState);\\n        require(beforeChecksum.length == 29, \\\"Checksum requires 29 length array\\\");\\n\\n        uint16 checksum = PrimitiveTypeUtils.reverseUint16(sum(beforeChecksum));\\n\\n        bytes memory checkSumBytes = abi.encodePacked(checksum);\\n\\n        bytes memory idBytes = PrimitiveTypeUtils.concat(beforeChecksum, checkSumBytes);\\n        require(idBytes.length == 31, \\\"idBytes requires 31 length array\\\");\\n\\n        return PrimitiveTypeUtils.reverseUint256(PrimitiveTypeUtils.padRightToUint256(idBytes));\\n    }\\n\\n    /**\\n     * @dev calcIdFromEthAddress\\n     */\\n    function calcIdFromEthAddress(bytes2 idType, address caller) internal pure returns (uint256) {\\n        uint256 addr = PrimitiveTypeUtils.addressToUint256(caller);\\n\\n        return calcIdFromGenesisState(idType, PrimitiveTypeUtils.reverseUint256(addr));\\n    }\\n}\\n\",\"keccak256\":\"0xeb76c5837450a2df7760f2ce1efdf8a803b43ae8c678bf32365f9f2a70dde73d\",\"license\":\"GPL-3.0\"},\"@iden3/contracts/lib/PrimitiveTypeUtils.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\npragma solidity 0.8.20;\\n\\nimport {BytesLib} from \\\"solidity-bytes-utils/contracts/BytesLib.sol\\\";\\n\\nlibrary PrimitiveTypeUtils {\\n    /**\\n     * @dev uint256ToBytes\\n     */\\n    function uint256ToBytes(uint256 x) internal pure returns (bytes memory b) {\\n        b = new bytes(32);\\n        assembly {\\n            mstore(add(b, 32), x)\\n        }\\n    }\\n\\n    /**\\n     * @dev reverse uint256\\n     */\\n    function reverseUint256(uint256 input) internal pure returns (uint256 v) {\\n        v = input;\\n\\n        // swap bytes\\n        v =\\n            ((v & 0xFF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00) >> 8) |\\n            ((v & 0x00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF) << 8);\\n\\n        // swap 2-byte long pairs\\n        v =\\n            ((v & 0xFFFF0000FFFF0000FFFF0000FFFF0000FFFF0000FFFF0000FFFF0000FFFF0000) >> 16) |\\n            ((v & 0x0000FFFF0000FFFF0000FFFF0000FFFF0000FFFF0000FFFF0000FFFF0000FFFF) << 16);\\n\\n        // swap 4-byte long pairs\\n        v =\\n            ((v & 0xFFFFFFFF00000000FFFFFFFF00000000FFFFFFFF00000000FFFFFFFF00000000) >> 32) |\\n            ((v & 0x00000000FFFFFFFF00000000FFFFFFFF00000000FFFFFFFF00000000FFFFFFFF) << 32);\\n\\n        // swap 8-byte long pairs\\n        v =\\n            ((v & 0xFFFFFFFFFFFFFFFF0000000000000000FFFFFFFFFFFFFFFF0000000000000000) >> 64) |\\n            ((v & 0x0000000000000000FFFFFFFFFFFFFFFF0000000000000000FFFFFFFFFFFFFFFF) << 64);\\n\\n        // swap 16-byte long pairs\\n        v = (v >> 128) | (v << 128);\\n    }\\n\\n    /**\\n     * @dev reverse uint16\\n     */\\n    function reverseUint16(uint16 input) internal pure returns (uint16 v) {\\n        v = input;\\n\\n        // swap bytes\\n        v = (v >> 8) | (v << 8);\\n    }\\n\\n    /**\\n     * @dev reverse uint32\\n     */\\n    function reverseUint32(uint32 input) internal pure returns (uint32 v) {\\n        v = input;\\n\\n        // swap bytes\\n        v = ((v & 0xFF00FF00) >> 8) | ((v & 0x00FF00FF) << 8);\\n\\n        // swap 2-byte long pairs\\n        v = (v >> 16) | (v << 16);\\n    }\\n\\n    /**\\n     * @dev compareStrings\\n     */\\n    function compareStrings(string memory a, string memory b) internal pure returns (bool) {\\n        if (bytes(a).length != bytes(b).length) {\\n            return false;\\n        }\\n        return (keccak256(abi.encodePacked((a))) == keccak256(abi.encodePacked((b))));\\n    }\\n\\n    /**\\n     * @dev padRightToUint256 shift left 12 bytes\\n     * @param b, bytes array with max length 32, other bytes are cut. e.g. 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266\\n     * @return value e.g 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266000000000000000000000000\\n     */\\n    function padRightToUint256(bytes memory b) internal pure returns (uint256 value) {\\n        return uint256(bytes32(b));\\n    }\\n\\n    /**\\n     * @dev bytesToAddress\\n     */\\n    function bytesToAddress(bytes memory bys) internal pure returns (address addr) {\\n        assembly {\\n            addr := mload(add(bys, 20))\\n        }\\n    }\\n\\n    /**\\n     * @dev concat\\n     */\\n    function concat(\\n        bytes memory preBytes,\\n        bytes memory postBytes\\n    ) internal pure returns (bytes memory) {\\n        return BytesLib.concat(preBytes, postBytes);\\n    }\\n\\n    /**\\n     * @dev slice\\n     */\\n    function slice(\\n        bytes memory bys,\\n        uint256 start,\\n        uint256 length\\n    ) internal pure returns (bytes memory) {\\n        return BytesLib.slice(bys, start, length);\\n    }\\n\\n    /**\\n     * @dev addressToUint256 converts address to uint256 which lower 20 bytes\\n     * is an address in Big Endian\\n     * @param _addr is ethereum address: eg.0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266\\n     * which as 0x000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb92266 converted to uint160\\n     * @return uint256 representation of address 1390849295786071768276380950238675083608645509734\\n     */\\n    function addressToUint256(address _addr) internal pure returns (uint256) {\\n        return uint256(uint160(_addr));\\n    }\\n\\n    /**\\n     * @dev uint256ToAddress converts uint256 which lower 20 bytes\\n     * is an address in Big Endian to address\\n     * @param input uint256 e.g. 1390849295786071768276380950238675083608645509734\\n     * which as 0x000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb92266 converted to address\\n     * @return address representation of uint256 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266\\n     */\\n    function uint256ToAddress(uint256 input) internal pure returns (address) {\\n        require(\\n            input == uint256(uint160(input)),\\n            \\\"given input is not a representation of address, 12 most significant bytes should be zero\\\"\\n        );\\n        return address(uint160(input));\\n    }\\n\\n    /**\\n     * @dev addressToChallenge converts address to uint256 which lower 20 bytes\\n     * are representation of address in LittleEndian\\n     * @param _addr is ethereum address: eg.0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266\\n     * addressToBytes: 0x000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb92266\\n     * padRightToUint256: 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266000000000000000000000000,\\n     * reverseUint256 result: 0x0000000000000000000000006622b9ffcf797282b86acef4f688ad1ae5d69ff3\\n     * @return uint256: 583091486781463398742321306787801699791102451699\\n     */\\n    function addressToUint256LE(address _addr) internal pure returns (uint256) {\\n        return reverseUint256(padRightToUint256(addressToBytes(_addr)));\\n    }\\n\\n    /**\\n     * @dev uint256LEtoAddress - converts uint256 which 20 lower bytes\\n     *      are representation of address in LE to address\\n     * @param input is uint256 which is created from bytes in LittleEndian:\\n     * eg. 583091486781463398742321306787801699791102451699\\n     *  or 0x0000000000000000000000006622b9ffcf797282b86acef4f688ad1ae5d69ff3\\n     * reverseUint256 result: 110194434039389003190498847789203126033799499726478230611233094447786700570624\\n     * uint256ToBytes result: 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266000000000000000000000000\\n     * @return address - 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266\\n     */\\n    function uint256LEToAddress(uint256 input) internal pure returns (address) {\\n        require(\\n            input == uint256(uint160(input)),\\n            \\\"given uint256 is not a representation of an address, 12 most significant bytes should be zero\\\"\\n        );\\n        return bytesToAddress(uint256ToBytes(reverseUint256(input)));\\n    }\\n\\n    function addressToBytes(address a) internal pure returns (bytes memory) {\\n        return abi.encodePacked(a);\\n    }\\n}\\n\",\"keccak256\":\"0xd8caabc62fe8d38bb06efa80af6a30560aaee7a88f226dd101df5d1d163d841e\",\"license\":\"GPL-3.0\"},\"@iden3/contracts/verifiers/ZKPVerifier.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.20;\\n\\nimport {ERC20} from \\\"@openzeppelin/contracts/token/ERC20/ERC20.sol\\\";\\nimport {Ownable2StepUpgradeable} from \\\"@openzeppelin/contracts-upgradeable/access/Ownable2StepUpgradeable.sol\\\";\\nimport {GenesisUtils} from \\\"../lib/GenesisUtils.sol\\\";\\nimport {ICircuitValidator} from \\\"../interfaces/ICircuitValidator.sol\\\";\\nimport {IZKPVerifier} from \\\"../interfaces/IZKPVerifier.sol\\\";\\nimport {ArrayUtils} from \\\"../lib/ArrayUtils.sol\\\";\\n\\nabstract contract ZKPVerifier is IZKPVerifier, Ownable2StepUpgradeable {\\n    /**\\n     * @dev Max return array length for request queries\\n     */\\n    uint256 public constant REQUESTS_RETURN_LIMIT = 1000;\\n\\n    /// @dev Main storage structure for the contract\\n    struct ZKPVerifierStorage {\\n        // msg.sender-> ( requestID -> is proof given )\\n        mapping(address => mapping(uint64 => bool)) proofs;\\n        mapping(uint64 => IZKPVerifier.ZKPRequest) _requests;\\n        uint64[] _requestIds;\\n    }\\n\\n    // keccak256(abi.encode(uint256(keccak256(\\\"iden3.storage.ZKPVerifier\\\")) - 1)) & ~bytes32(uint256(0xff));\\n    bytes32 internal constant ZKPVerifierStorageLocation =\\n        0x512d18c55869273fec77e70d8a8586e3fb133e90f1db24c6bcf4ff3506ef6a00;\\n\\n    /// @dev Get the main storage using assembly to ensure specific storage location\\n    function _getZKPVerifierStorage() internal pure returns (ZKPVerifierStorage storage $) {\\n        assembly {\\n            $.slot := ZKPVerifierStorageLocation\\n        }\\n    }\\n\\n    /**\\n     * @dev Sets the value for {initialOwner}.\\n     *\\n     * This value is immutable: it can only be set once during\\n     * construction.\\n     */\\n    function __ZKPVerifier_init(address initialOwner) internal onlyInitializing {\\n        ___ZKPVerifier_init_unchained(initialOwner);\\n    }\\n\\n    function ___ZKPVerifier_init_unchained(address initialOwner) internal onlyInitializing {\\n        __Ownable_init(initialOwner);\\n    }\\n\\n    function submitZKPResponse(\\n        uint64 requestId,\\n        uint256[] calldata inputs,\\n        uint256[2] calldata a,\\n        uint256[2][2] calldata b,\\n        uint256[2] calldata c\\n    ) public override {\\n        ZKPVerifierStorage storage s = _getZKPVerifierStorage();\\n        IZKPVerifier.ZKPRequest storage request = s._requests[requestId];\\n\\n        require(\\n            request.validator != ICircuitValidator(address(0)),\\n            \\\"validator is not set for this request id\\\"\\n        ); // validator exists\\n\\n        _beforeProofSubmit(requestId, inputs, request.validator);\\n        request.validator.verify(inputs, a, b, c, request.data, msg.sender);\\n        s.proofs[msg.sender][requestId] = true; // user provided a valid proof for request\\n        _afterProofSubmit(requestId, inputs, request.validator);\\n    }\\n\\n    function getZKPRequest(\\n        uint64 requestId\\n    ) public view override returns (IZKPVerifier.ZKPRequest memory) {\\n        require(requestIdExists(requestId), \\\"request id doesn't exist\\\");\\n        return _getZKPVerifierStorage()._requests[requestId];\\n    }\\n\\n    function setZKPRequest(\\n        uint64 requestId,\\n        ZKPRequest calldata request\\n    ) public override onlyOwner {\\n        ZKPVerifierStorage storage s = _getZKPVerifierStorage();\\n        s._requests[requestId] = request;\\n        s._requestIds.push(requestId);\\n    }\\n\\n    function getZKPRequestsCount() public view returns (uint256) {\\n        return _getZKPVerifierStorage()._requestIds.length;\\n    }\\n\\n    function requestIdExists(uint64 requestId) public view override returns (bool) {\\n        ZKPVerifierStorage storage s = _getZKPVerifierStorage();\\n        for (uint i = 0; i < s._requestIds.length; i++) {\\n            if (s._requestIds[i] == requestId) {\\n                return true;\\n            }\\n        }\\n\\n        return false;\\n    }\\n\\n    function getZKPRequests(\\n        uint256 startIndex,\\n        uint256 length\\n    ) public view returns (IZKPVerifier.ZKPRequest[] memory) {\\n        ZKPVerifierStorage storage s = _getZKPVerifierStorage();\\n        (uint256 start, uint256 end) = ArrayUtils.calculateBounds(\\n            s._requestIds.length,\\n            startIndex,\\n            length,\\n            REQUESTS_RETURN_LIMIT\\n        );\\n\\n        IZKPVerifier.ZKPRequest[] memory result = new IZKPVerifier.ZKPRequest[](end - start);\\n\\n        for (uint256 i = start; i < end; i++) {\\n            result[i - start] = s._requests[s._requestIds[i]];\\n        }\\n\\n        return result;\\n    }\\n\\n    function isProofSubmitted(address sender, uint64 requestID) public view returns (bool) {\\n        return _getZKPVerifierStorage().proofs[sender][requestID];\\n    }\\n\\n    /**\\n     * @dev Hook that is called before any proof response submit\\n     */\\n    function _beforeProofSubmit(\\n        uint64 requestId,\\n        uint256[] memory inputs,\\n        ICircuitValidator validator\\n    ) internal virtual {}\\n\\n    /**\\n     * @dev Hook that is called after any proof response submit\\n     */\\n    function _afterProofSubmit(\\n        uint64 requestId,\\n        uint256[] memory inputs,\\n        ICircuitValidator validator\\n    ) internal virtual {}\\n}\\n\",\"keccak256\":\"0x34c6f060bd4ca06010ceaf34f140a54f7dde9257c4dc57883be658ad5d73f13b\",\"license\":\"MIT\"},\"@openzeppelin/contracts-upgradeable/access/Ownable2StepUpgradeable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable2Step.sol)\\n\\npragma solidity ^0.8.20;\\n\\nimport {OwnableUpgradeable} from \\\"./OwnableUpgradeable.sol\\\";\\nimport {Initializable} from \\\"../proxy/utils/Initializable.sol\\\";\\n\\n/**\\n * @dev Contract module which provides access control mechanism, where\\n * there is an account (an owner) that can be granted exclusive access to\\n * specific functions.\\n *\\n * The initial owner is specified at deployment time in the constructor for `Ownable`. This\\n * can later be changed with {transferOwnership} and {acceptOwnership}.\\n *\\n * This module is used through inheritance. It will make available all functions\\n * from parent (Ownable).\\n */\\nabstract contract Ownable2StepUpgradeable is Initializable, OwnableUpgradeable {\\n    /// @custom:storage-location erc7201:openzeppelin.storage.Ownable2Step\\n    struct Ownable2StepStorage {\\n        address _pendingOwner;\\n    }\\n\\n    // keccak256(abi.encode(uint256(keccak256(\\\"openzeppelin.storage.Ownable2Step\\\")) - 1)) & ~bytes32(uint256(0xff))\\n    bytes32 private constant Ownable2StepStorageLocation = 0x237e158222e3e6968b72b9db0d8043aacf074ad9f650f0d1606b4d82ee432c00;\\n\\n    function _getOwnable2StepStorage() private pure returns (Ownable2StepStorage storage $) {\\n        assembly {\\n            $.slot := Ownable2StepStorageLocation\\n        }\\n    }\\n\\n    event OwnershipTransferStarted(address indexed previousOwner, address indexed newOwner);\\n\\n    function __Ownable2Step_init() internal onlyInitializing {\\n    }\\n\\n    function __Ownable2Step_init_unchained() internal onlyInitializing {\\n    }\\n    /**\\n     * @dev Returns the address of the pending owner.\\n     */\\n    function pendingOwner() public view virtual returns (address) {\\n        Ownable2StepStorage storage $ = _getOwnable2StepStorage();\\n        return $._pendingOwner;\\n    }\\n\\n    /**\\n     * @dev Starts the ownership transfer of the contract to a new account. Replaces the pending transfer if there is one.\\n     * Can only be called by the current owner.\\n     */\\n    function transferOwnership(address newOwner) public virtual override onlyOwner {\\n        Ownable2StepStorage storage $ = _getOwnable2StepStorage();\\n        $._pendingOwner = newOwner;\\n        emit OwnershipTransferStarted(owner(), newOwner);\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`) and deletes any pending owner.\\n     * Internal function without access restriction.\\n     */\\n    function _transferOwnership(address newOwner) internal virtual override {\\n        Ownable2StepStorage storage $ = _getOwnable2StepStorage();\\n        delete $._pendingOwner;\\n        super._transferOwnership(newOwner);\\n    }\\n\\n    /**\\n     * @dev The new owner accepts the ownership transfer.\\n     */\\n    function acceptOwnership() public virtual {\\n        address sender = _msgSender();\\n        if (pendingOwner() != sender) {\\n            revert OwnableUnauthorizedAccount(sender);\\n        }\\n        _transferOwnership(sender);\\n    }\\n}\\n\",\"keccak256\":\"0xbca4a4f66d98028293dba695851d1b20d3e0ba2fff7453fb241f192fa3fc6b6f\",\"license\":\"MIT\"},\"@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)\\n\\npragma solidity ^0.8.20;\\n\\nimport {ContextUpgradeable} from \\\"../utils/ContextUpgradeable.sol\\\";\\nimport {Initializable} from \\\"../proxy/utils/Initializable.sol\\\";\\n\\n/**\\n * @dev Contract module which provides a basic access control mechanism, where\\n * there is an account (an owner) that can be granted exclusive access to\\n * specific functions.\\n *\\n * The initial owner is set to the address provided by the deployer. This can\\n * later be changed with {transferOwnership}.\\n *\\n * This module is used through inheritance. It will make available the modifier\\n * `onlyOwner`, which can be applied to your functions to restrict their use to\\n * the owner.\\n */\\nabstract contract OwnableUpgradeable is Initializable, ContextUpgradeable {\\n    /// @custom:storage-location erc7201:openzeppelin.storage.Ownable\\n    struct OwnableStorage {\\n        address _owner;\\n    }\\n\\n    // keccak256(abi.encode(uint256(keccak256(\\\"openzeppelin.storage.Ownable\\\")) - 1)) & ~bytes32(uint256(0xff))\\n    bytes32 private constant OwnableStorageLocation = 0x9016d09d72d40fdae2fd8ceac6b6234c7706214fd39c1cd1e609a0528c199300;\\n\\n    function _getOwnableStorage() private pure returns (OwnableStorage storage $) {\\n        assembly {\\n            $.slot := OwnableStorageLocation\\n        }\\n    }\\n\\n    /**\\n     * @dev The caller account is not authorized to perform an operation.\\n     */\\n    error OwnableUnauthorizedAccount(address account);\\n\\n    /**\\n     * @dev The owner is not a valid owner account. (eg. `address(0)`)\\n     */\\n    error OwnableInvalidOwner(address owner);\\n\\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\\n\\n    /**\\n     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.\\n     */\\n    function __Ownable_init(address initialOwner) internal onlyInitializing {\\n        __Ownable_init_unchained(initialOwner);\\n    }\\n\\n    function __Ownable_init_unchained(address initialOwner) internal onlyInitializing {\\n        if (initialOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(initialOwner);\\n    }\\n\\n    /**\\n     * @dev Throws if called by any account other than the owner.\\n     */\\n    modifier onlyOwner() {\\n        _checkOwner();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Returns the address of the current owner.\\n     */\\n    function owner() public view virtual returns (address) {\\n        OwnableStorage storage $ = _getOwnableStorage();\\n        return $._owner;\\n    }\\n\\n    /**\\n     * @dev Throws if the sender is not the owner.\\n     */\\n    function _checkOwner() internal view virtual {\\n        if (owner() != _msgSender()) {\\n            revert OwnableUnauthorizedAccount(_msgSender());\\n        }\\n    }\\n\\n    /**\\n     * @dev Leaves the contract without owner. It will not be possible to call\\n     * `onlyOwner` functions. Can only be called by the current owner.\\n     *\\n     * NOTE: Renouncing ownership will leave the contract without an owner,\\n     * thereby disabling any functionality that is only available to the owner.\\n     */\\n    function renounceOwnership() public virtual onlyOwner {\\n        _transferOwnership(address(0));\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Can only be called by the current owner.\\n     */\\n    function transferOwnership(address newOwner) public virtual onlyOwner {\\n        if (newOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(newOwner);\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Internal function without access restriction.\\n     */\\n    function _transferOwnership(address newOwner) internal virtual {\\n        OwnableStorage storage $ = _getOwnableStorage();\\n        address oldOwner = $._owner;\\n        $._owner = newOwner;\\n        emit OwnershipTransferred(oldOwner, newOwner);\\n    }\\n}\\n\",\"keccak256\":\"0xc163fcf9bb10138631a9ba5564df1fa25db9adff73bd9ee868a8ae1858fe093a\",\"license\":\"MIT\"},\"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (proxy/utils/Initializable.sol)\\n\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev This is a base contract to aid in writing upgradeable contracts, or any kind of contract that will be deployed\\n * behind a proxy. Since proxied contracts do not make use of a constructor, it's common to move constructor logic to an\\n * external initializer function, usually called `initialize`. It then becomes necessary to protect this initializer\\n * function so it can only be called once. The {initializer} modifier provided by this contract will have this effect.\\n *\\n * The initialization functions use a version number. Once a version number is used, it is consumed and cannot be\\n * reused. This mechanism prevents re-execution of each \\\"step\\\" but allows the creation of new initialization steps in\\n * case an upgrade adds a module that needs to be initialized.\\n *\\n * For example:\\n *\\n * [.hljs-theme-light.nopadding]\\n * ```solidity\\n * contract MyToken is ERC20Upgradeable {\\n *     function initialize() initializer public {\\n *         __ERC20_init(\\\"MyToken\\\", \\\"MTK\\\");\\n *     }\\n * }\\n *\\n * contract MyTokenV2 is MyToken, ERC20PermitUpgradeable {\\n *     function initializeV2() reinitializer(2) public {\\n *         __ERC20Permit_init(\\\"MyToken\\\");\\n *     }\\n * }\\n * ```\\n *\\n * TIP: To avoid leaving the proxy in an uninitialized state, the initializer function should be called as early as\\n * possible by providing the encoded function call as the `_data` argument to {ERC1967Proxy-constructor}.\\n *\\n * CAUTION: When used with inheritance, manual care must be taken to not invoke a parent initializer twice, or to ensure\\n * that all initializers are idempotent. This is not verified automatically as constructors are by Solidity.\\n *\\n * [CAUTION]\\n * ====\\n * Avoid leaving a contract uninitialized.\\n *\\n * An uninitialized contract can be taken over by an attacker. This applies to both a proxy and its implementation\\n * contract, which may impact the proxy. To prevent the implementation contract from being used, you should invoke\\n * the {_disableInitializers} function in the constructor to automatically lock it when it is deployed:\\n *\\n * [.hljs-theme-light.nopadding]\\n * ```\\n * /// @custom:oz-upgrades-unsafe-allow constructor\\n * constructor() {\\n *     _disableInitializers();\\n * }\\n * ```\\n * ====\\n */\\nabstract contract Initializable {\\n    /**\\n     * @dev Storage of the initializable contract.\\n     *\\n     * It's implemented on a custom ERC-7201 namespace to reduce the risk of storage collisions\\n     * when using with upgradeable contracts.\\n     *\\n     * @custom:storage-location erc7201:openzeppelin.storage.Initializable\\n     */\\n    struct InitializableStorage {\\n        /**\\n         * @dev Indicates that the contract has been initialized.\\n         */\\n        uint64 _initialized;\\n        /**\\n         * @dev Indicates that the contract is in the process of being initialized.\\n         */\\n        bool _initializing;\\n    }\\n\\n    // keccak256(abi.encode(uint256(keccak256(\\\"openzeppelin.storage.Initializable\\\")) - 1)) & ~bytes32(uint256(0xff))\\n    bytes32 private constant INITIALIZABLE_STORAGE = 0xf0c57e16840df040f15088dc2f81fe391c3923bec73e23a9662efc9c229c6a00;\\n\\n    /**\\n     * @dev The contract is already initialized.\\n     */\\n    error InvalidInitialization();\\n\\n    /**\\n     * @dev The contract is not initializing.\\n     */\\n    error NotInitializing();\\n\\n    /**\\n     * @dev Triggered when the contract has been initialized or reinitialized.\\n     */\\n    event Initialized(uint64 version);\\n\\n    /**\\n     * @dev A modifier that defines a protected initializer function that can be invoked at most once. In its scope,\\n     * `onlyInitializing` functions can be used to initialize parent contracts.\\n     *\\n     * Similar to `reinitializer(1)`, except that in the context of a constructor an `initializer` may be invoked any\\n     * number of times. This behavior in the constructor can be useful during testing and is not expected to be used in\\n     * production.\\n     *\\n     * Emits an {Initialized} event.\\n     */\\n    modifier initializer() {\\n        // solhint-disable-next-line var-name-mixedcase\\n        InitializableStorage storage $ = _getInitializableStorage();\\n\\n        // Cache values to avoid duplicated sloads\\n        bool isTopLevelCall = !$._initializing;\\n        uint64 initialized = $._initialized;\\n\\n        // Allowed calls:\\n        // - initialSetup: the contract is not in the initializing state and no previous version was\\n        //                 initialized\\n        // - construction: the contract is initialized at version 1 (no reininitialization) and the\\n        //                 current contract is just being deployed\\n        bool initialSetup = initialized == 0 && isTopLevelCall;\\n        bool construction = initialized == 1 && address(this).code.length == 0;\\n\\n        if (!initialSetup && !construction) {\\n            revert InvalidInitialization();\\n        }\\n        $._initialized = 1;\\n        if (isTopLevelCall) {\\n            $._initializing = true;\\n        }\\n        _;\\n        if (isTopLevelCall) {\\n            $._initializing = false;\\n            emit Initialized(1);\\n        }\\n    }\\n\\n    /**\\n     * @dev A modifier that defines a protected reinitializer function that can be invoked at most once, and only if the\\n     * contract hasn't been initialized to a greater version before. In its scope, `onlyInitializing` functions can be\\n     * used to initialize parent contracts.\\n     *\\n     * A reinitializer may be used after the original initialization step. This is essential to configure modules that\\n     * are added through upgrades and that require initialization.\\n     *\\n     * When `version` is 1, this modifier is similar to `initializer`, except that functions marked with `reinitializer`\\n     * cannot be nested. If one is invoked in the context of another, execution will revert.\\n     *\\n     * Note that versions can jump in increments greater than 1; this implies that if multiple reinitializers coexist in\\n     * a contract, executing them in the right order is up to the developer or operator.\\n     *\\n     * WARNING: Setting the version to 2**64 - 1 will prevent any future reinitialization.\\n     *\\n     * Emits an {Initialized} event.\\n     */\\n    modifier reinitializer(uint64 version) {\\n        // solhint-disable-next-line var-name-mixedcase\\n        InitializableStorage storage $ = _getInitializableStorage();\\n\\n        if ($._initializing || $._initialized >= version) {\\n            revert InvalidInitialization();\\n        }\\n        $._initialized = version;\\n        $._initializing = true;\\n        _;\\n        $._initializing = false;\\n        emit Initialized(version);\\n    }\\n\\n    /**\\n     * @dev Modifier to protect an initialization function so that it can only be invoked by functions with the\\n     * {initializer} and {reinitializer} modifiers, directly or indirectly.\\n     */\\n    modifier onlyInitializing() {\\n        _checkInitializing();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Reverts if the contract is not in an initializing state. See {onlyInitializing}.\\n     */\\n    function _checkInitializing() internal view virtual {\\n        if (!_isInitializing()) {\\n            revert NotInitializing();\\n        }\\n    }\\n\\n    /**\\n     * @dev Locks the contract, preventing any future reinitialization. This cannot be part of an initializer call.\\n     * Calling this in the constructor of a contract will prevent that contract from being initialized or reinitialized\\n     * to any version. It is recommended to use this to lock implementation contracts that are designed to be called\\n     * through proxies.\\n     *\\n     * Emits an {Initialized} event the first time it is successfully executed.\\n     */\\n    function _disableInitializers() internal virtual {\\n        // solhint-disable-next-line var-name-mixedcase\\n        InitializableStorage storage $ = _getInitializableStorage();\\n\\n        if ($._initializing) {\\n            revert InvalidInitialization();\\n        }\\n        if ($._initialized != type(uint64).max) {\\n            $._initialized = type(uint64).max;\\n            emit Initialized(type(uint64).max);\\n        }\\n    }\\n\\n    /**\\n     * @dev Returns the highest version that has been initialized. See {reinitializer}.\\n     */\\n    function _getInitializedVersion() internal view returns (uint64) {\\n        return _getInitializableStorage()._initialized;\\n    }\\n\\n    /**\\n     * @dev Returns `true` if the contract is currently initializing. See {onlyInitializing}.\\n     */\\n    function _isInitializing() internal view returns (bool) {\\n        return _getInitializableStorage()._initializing;\\n    }\\n\\n    /**\\n     * @dev Returns a pointer to the storage namespace.\\n     */\\n    // solhint-disable-next-line var-name-mixedcase\\n    function _getInitializableStorage() private pure returns (InitializableStorage storage $) {\\n        assembly {\\n            $.slot := INITIALIZABLE_STORAGE\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0x631188737069917d2f909d29ce62c4d48611d326686ba6683e26b72a23bfac0b\",\"license\":\"MIT\"},\"@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.1) (utils/Context.sol)\\n\\npragma solidity ^0.8.20;\\nimport {Initializable} from \\\"../proxy/utils/Initializable.sol\\\";\\n\\n/**\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract ContextUpgradeable is Initializable {\\n    function __Context_init() internal onlyInitializing {\\n    }\\n\\n    function __Context_init_unchained() internal onlyInitializing {\\n    }\\n    function _msgSender() internal view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes calldata) {\\n        return msg.data;\\n    }\\n\\n    function _contextSuffixLength() internal view virtual returns (uint256) {\\n        return 0;\\n    }\\n}\\n\",\"keccak256\":\"0xdbef5f0c787055227243a7318ef74c8a5a1108ca3a07f2b3a00ef67769e1e397\",\"license\":\"MIT\"},\"@openzeppelin/contracts/access/Ownable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)\\n\\npragma solidity ^0.8.20;\\n\\nimport {Context} from \\\"../utils/Context.sol\\\";\\n\\n/**\\n * @dev Contract module which provides a basic access control mechanism, where\\n * there is an account (an owner) that can be granted exclusive access to\\n * specific functions.\\n *\\n * The initial owner is set to the address provided by the deployer. This can\\n * later be changed with {transferOwnership}.\\n *\\n * This module is used through inheritance. It will make available the modifier\\n * `onlyOwner`, which can be applied to your functions to restrict their use to\\n * the owner.\\n */\\nabstract contract Ownable is Context {\\n    address private _owner;\\n\\n    /**\\n     * @dev The caller account is not authorized to perform an operation.\\n     */\\n    error OwnableUnauthorizedAccount(address account);\\n\\n    /**\\n     * @dev The owner is not a valid owner account. (eg. `address(0)`)\\n     */\\n    error OwnableInvalidOwner(address owner);\\n\\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\\n\\n    /**\\n     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.\\n     */\\n    constructor(address initialOwner) {\\n        if (initialOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(initialOwner);\\n    }\\n\\n    /**\\n     * @dev Throws if called by any account other than the owner.\\n     */\\n    modifier onlyOwner() {\\n        _checkOwner();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Returns the address of the current owner.\\n     */\\n    function owner() public view virtual returns (address) {\\n        return _owner;\\n    }\\n\\n    /**\\n     * @dev Throws if the sender is not the owner.\\n     */\\n    function _checkOwner() internal view virtual {\\n        if (owner() != _msgSender()) {\\n            revert OwnableUnauthorizedAccount(_msgSender());\\n        }\\n    }\\n\\n    /**\\n     * @dev Leaves the contract without owner. It will not be possible to call\\n     * `onlyOwner` functions. Can only be called by the current owner.\\n     *\\n     * NOTE: Renouncing ownership will leave the contract without an owner,\\n     * thereby disabling any functionality that is only available to the owner.\\n     */\\n    function renounceOwnership() public virtual onlyOwner {\\n        _transferOwnership(address(0));\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Can only be called by the current owner.\\n     */\\n    function transferOwnership(address newOwner) public virtual onlyOwner {\\n        if (newOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(newOwner);\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Internal function without access restriction.\\n     */\\n    function _transferOwnership(address newOwner) internal virtual {\\n        address oldOwner = _owner;\\n        _owner = newOwner;\\n        emit OwnershipTransferred(oldOwner, newOwner);\\n    }\\n}\\n\",\"keccak256\":\"0xff6d0bb2e285473e5311d9d3caacb525ae3538a80758c10649a4d61029b017bb\",\"license\":\"MIT\"},\"@openzeppelin/contracts/interfaces/draft-IERC6093.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (interfaces/draft-IERC6093.sol)\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev Standard ERC20 Errors\\n * Interface of the https://eips.ethereum.org/EIPS/eip-6093[ERC-6093] custom errors for ERC20 tokens.\\n */\\ninterface IERC20Errors {\\n    /**\\n     * @dev Indicates an error related to the current `balance` of a `sender`. Used in transfers.\\n     * @param sender Address whose tokens are being transferred.\\n     * @param balance Current balance for the interacting account.\\n     * @param needed Minimum amount required to perform a transfer.\\n     */\\n    error ERC20InsufficientBalance(address sender, uint256 balance, uint256 needed);\\n\\n    /**\\n     * @dev Indicates a failure with the token `sender`. Used in transfers.\\n     * @param sender Address whose tokens are being transferred.\\n     */\\n    error ERC20InvalidSender(address sender);\\n\\n    /**\\n     * @dev Indicates a failure with the token `receiver`. Used in transfers.\\n     * @param receiver Address to which tokens are being transferred.\\n     */\\n    error ERC20InvalidReceiver(address receiver);\\n\\n    /**\\n     * @dev Indicates a failure with the `spender`\\u2019s `allowance`. Used in transfers.\\n     * @param spender Address that may be allowed to operate on tokens without being their owner.\\n     * @param allowance Amount of tokens a `spender` is allowed to operate with.\\n     * @param needed Minimum amount required to perform a transfer.\\n     */\\n    error ERC20InsufficientAllowance(address spender, uint256 allowance, uint256 needed);\\n\\n    /**\\n     * @dev Indicates a failure with the `approver` of a token to be approved. Used in approvals.\\n     * @param approver Address initiating an approval operation.\\n     */\\n    error ERC20InvalidApprover(address approver);\\n\\n    /**\\n     * @dev Indicates a failure with the `spender` to be approved. Used in approvals.\\n     * @param spender Address that may be allowed to operate on tokens without being their owner.\\n     */\\n    error ERC20InvalidSpender(address spender);\\n}\\n\\n/**\\n * @dev Standard ERC721 Errors\\n * Interface of the https://eips.ethereum.org/EIPS/eip-6093[ERC-6093] custom errors for ERC721 tokens.\\n */\\ninterface IERC721Errors {\\n    /**\\n     * @dev Indicates that an address can't be an owner. For example, `address(0)` is a forbidden owner in EIP-20.\\n     * Used in balance queries.\\n     * @param owner Address of the current owner of a token.\\n     */\\n    error ERC721InvalidOwner(address owner);\\n\\n    /**\\n     * @dev Indicates a `tokenId` whose `owner` is the zero address.\\n     * @param tokenId Identifier number of a token.\\n     */\\n    error ERC721NonexistentToken(uint256 tokenId);\\n\\n    /**\\n     * @dev Indicates an error related to the ownership over a particular token. Used in transfers.\\n     * @param sender Address whose tokens are being transferred.\\n     * @param tokenId Identifier number of a token.\\n     * @param owner Address of the current owner of a token.\\n     */\\n    error ERC721IncorrectOwner(address sender, uint256 tokenId, address owner);\\n\\n    /**\\n     * @dev Indicates a failure with the token `sender`. Used in transfers.\\n     * @param sender Address whose tokens are being transferred.\\n     */\\n    error ERC721InvalidSender(address sender);\\n\\n    /**\\n     * @dev Indicates a failure with the token `receiver`. Used in transfers.\\n     * @param receiver Address to which tokens are being transferred.\\n     */\\n    error ERC721InvalidReceiver(address receiver);\\n\\n    /**\\n     * @dev Indicates a failure with the `operator`\\u2019s approval. Used in transfers.\\n     * @param operator Address that may be allowed to operate on tokens without being their owner.\\n     * @param tokenId Identifier number of a token.\\n     */\\n    error ERC721InsufficientApproval(address operator, uint256 tokenId);\\n\\n    /**\\n     * @dev Indicates a failure with the `approver` of a token to be approved. Used in approvals.\\n     * @param approver Address initiating an approval operation.\\n     */\\n    error ERC721InvalidApprover(address approver);\\n\\n    /**\\n     * @dev Indicates a failure with the `operator` to be approved. Used in approvals.\\n     * @param operator Address that may be allowed to operate on tokens without being their owner.\\n     */\\n    error ERC721InvalidOperator(address operator);\\n}\\n\\n/**\\n * @dev Standard ERC1155 Errors\\n * Interface of the https://eips.ethereum.org/EIPS/eip-6093[ERC-6093] custom errors for ERC1155 tokens.\\n */\\ninterface IERC1155Errors {\\n    /**\\n     * @dev Indicates an error related to the current `balance` of a `sender`. Used in transfers.\\n     * @param sender Address whose tokens are being transferred.\\n     * @param balance Current balance for the interacting account.\\n     * @param needed Minimum amount required to perform a transfer.\\n     * @param tokenId Identifier number of a token.\\n     */\\n    error ERC1155InsufficientBalance(address sender, uint256 balance, uint256 needed, uint256 tokenId);\\n\\n    /**\\n     * @dev Indicates a failure with the token `sender`. Used in transfers.\\n     * @param sender Address whose tokens are being transferred.\\n     */\\n    error ERC1155InvalidSender(address sender);\\n\\n    /**\\n     * @dev Indicates a failure with the token `receiver`. Used in transfers.\\n     * @param receiver Address to which tokens are being transferred.\\n     */\\n    error ERC1155InvalidReceiver(address receiver);\\n\\n    /**\\n     * @dev Indicates a failure with the `operator`\\u2019s approval. Used in transfers.\\n     * @param operator Address that may be allowed to operate on tokens without being their owner.\\n     * @param owner Address of the current owner of a token.\\n     */\\n    error ERC1155MissingApprovalForAll(address operator, address owner);\\n\\n    /**\\n     * @dev Indicates a failure with the `approver` of a token to be approved. Used in approvals.\\n     * @param approver Address initiating an approval operation.\\n     */\\n    error ERC1155InvalidApprover(address approver);\\n\\n    /**\\n     * @dev Indicates a failure with the `operator` to be approved. Used in approvals.\\n     * @param operator Address that may be allowed to operate on tokens without being their owner.\\n     */\\n    error ERC1155InvalidOperator(address operator);\\n\\n    /**\\n     * @dev Indicates an array length mismatch between ids and values in a safeBatchTransferFrom operation.\\n     * Used in batch transfers.\\n     * @param idsLength Length of the array of token identifiers\\n     * @param valuesLength Length of the array of token amounts\\n     */\\n    error ERC1155InvalidArrayLength(uint256 idsLength, uint256 valuesLength);\\n}\\n\",\"keccak256\":\"0x60c65f701957fdd6faea1acb0bb45825791d473693ed9ecb34726fdfaa849dd7\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC20/ERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (token/ERC20/ERC20.sol)\\n\\npragma solidity ^0.8.20;\\n\\nimport {IERC20} from \\\"./IERC20.sol\\\";\\nimport {IERC20Metadata} from \\\"./extensions/IERC20Metadata.sol\\\";\\nimport {Context} from \\\"../../utils/Context.sol\\\";\\nimport {IERC20Errors} from \\\"../../interfaces/draft-IERC6093.sol\\\";\\n\\n/**\\n * @dev Implementation of the {IERC20} interface.\\n *\\n * This implementation is agnostic to the way tokens are created. This means\\n * that a supply mechanism has to be added in a derived contract using {_mint}.\\n *\\n * TIP: For a detailed writeup see our guide\\n * https://forum.openzeppelin.com/t/how-to-implement-erc20-supply-mechanisms/226[How\\n * to implement supply mechanisms].\\n *\\n * The default value of {decimals} is 18. To change this, you should override\\n * this function so it returns a different value.\\n *\\n * We have followed general OpenZeppelin Contracts guidelines: functions revert\\n * instead returning `false` on failure. This behavior is nonetheless\\n * conventional and does not conflict with the expectations of ERC20\\n * applications.\\n *\\n * Additionally, an {Approval} event is emitted on calls to {transferFrom}.\\n * This allows applications to reconstruct the allowance for all accounts just\\n * by listening to said events. Other implementations of the EIP may not emit\\n * these events, as it isn't required by the specification.\\n */\\nabstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors {\\n    mapping(address account => uint256) private _balances;\\n\\n    mapping(address account => mapping(address spender => uint256)) private _allowances;\\n\\n    uint256 private _totalSupply;\\n\\n    string private _name;\\n    string private _symbol;\\n\\n    /**\\n     * @dev Sets the values for {name} and {symbol}.\\n     *\\n     * All two of these values are immutable: they can only be set once during\\n     * construction.\\n     */\\n    constructor(string memory name_, string memory symbol_) {\\n        _name = name_;\\n        _symbol = symbol_;\\n    }\\n\\n    /**\\n     * @dev Returns the name of the token.\\n     */\\n    function name() public view virtual returns (string memory) {\\n        return _name;\\n    }\\n\\n    /**\\n     * @dev Returns the symbol of the token, usually a shorter version of the\\n     * name.\\n     */\\n    function symbol() public view virtual returns (string memory) {\\n        return _symbol;\\n    }\\n\\n    /**\\n     * @dev Returns the number of decimals used to get its user representation.\\n     * For example, if `decimals` equals `2`, a balance of `505` tokens should\\n     * be displayed to a user as `5.05` (`505 / 10 ** 2`).\\n     *\\n     * Tokens usually opt for a value of 18, imitating the relationship between\\n     * Ether and Wei. This is the default value returned by this function, unless\\n     * it's overridden.\\n     *\\n     * NOTE: This information is only used for _display_ purposes: it in\\n     * no way affects any of the arithmetic of the contract, including\\n     * {IERC20-balanceOf} and {IERC20-transfer}.\\n     */\\n    function decimals() public view virtual returns (uint8) {\\n        return 18;\\n    }\\n\\n    /**\\n     * @dev See {IERC20-totalSupply}.\\n     */\\n    function totalSupply() public view virtual returns (uint256) {\\n        return _totalSupply;\\n    }\\n\\n    /**\\n     * @dev See {IERC20-balanceOf}.\\n     */\\n    function balanceOf(address account) public view virtual returns (uint256) {\\n        return _balances[account];\\n    }\\n\\n    /**\\n     * @dev See {IERC20-transfer}.\\n     *\\n     * Requirements:\\n     *\\n     * - `to` cannot be the zero address.\\n     * - the caller must have a balance of at least `value`.\\n     */\\n    function transfer(address to, uint256 value) public virtual returns (bool) {\\n        address owner = _msgSender();\\n        _transfer(owner, to, value);\\n        return true;\\n    }\\n\\n    /**\\n     * @dev See {IERC20-allowance}.\\n     */\\n    function allowance(address owner, address spender) public view virtual returns (uint256) {\\n        return _allowances[owner][spender];\\n    }\\n\\n    /**\\n     * @dev See {IERC20-approve}.\\n     *\\n     * NOTE: If `value` is the maximum `uint256`, the allowance is not updated on\\n     * `transferFrom`. This is semantically equivalent to an infinite approval.\\n     *\\n     * Requirements:\\n     *\\n     * - `spender` cannot be the zero address.\\n     */\\n    function approve(address spender, uint256 value) public virtual returns (bool) {\\n        address owner = _msgSender();\\n        _approve(owner, spender, value);\\n        return true;\\n    }\\n\\n    /**\\n     * @dev See {IERC20-transferFrom}.\\n     *\\n     * Emits an {Approval} event indicating the updated allowance. This is not\\n     * required by the EIP. See the note at the beginning of {ERC20}.\\n     *\\n     * NOTE: Does not update the allowance if the current allowance\\n     * is the maximum `uint256`.\\n     *\\n     * Requirements:\\n     *\\n     * - `from` and `to` cannot be the zero address.\\n     * - `from` must have a balance of at least `value`.\\n     * - the caller must have allowance for ``from``'s tokens of at least\\n     * `value`.\\n     */\\n    function transferFrom(address from, address to, uint256 value) public virtual returns (bool) {\\n        address spender = _msgSender();\\n        _spendAllowance(from, spender, value);\\n        _transfer(from, to, value);\\n        return true;\\n    }\\n\\n    /**\\n     * @dev Moves a `value` amount of tokens from `from` to `to`.\\n     *\\n     * This internal function is equivalent to {transfer}, and can be used to\\n     * e.g. implement automatic token fees, slashing mechanisms, etc.\\n     *\\n     * Emits a {Transfer} event.\\n     *\\n     * NOTE: This function is not virtual, {_update} should be overridden instead.\\n     */\\n    function _transfer(address from, address to, uint256 value) internal {\\n        if (from == address(0)) {\\n            revert ERC20InvalidSender(address(0));\\n        }\\n        if (to == address(0)) {\\n            revert ERC20InvalidReceiver(address(0));\\n        }\\n        _update(from, to, value);\\n    }\\n\\n    /**\\n     * @dev Transfers a `value` amount of tokens from `from` to `to`, or alternatively mints (or burns) if `from`\\n     * (or `to`) is the zero address. All customizations to transfers, mints, and burns should be done by overriding\\n     * this function.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function _update(address from, address to, uint256 value) internal virtual {\\n        if (from == address(0)) {\\n            // Overflow check required: The rest of the code assumes that totalSupply never overflows\\n            _totalSupply += value;\\n        } else {\\n            uint256 fromBalance = _balances[from];\\n            if (fromBalance < value) {\\n                revert ERC20InsufficientBalance(from, fromBalance, value);\\n            }\\n            unchecked {\\n                // Overflow not possible: value <= fromBalance <= totalSupply.\\n                _balances[from] = fromBalance - value;\\n            }\\n        }\\n\\n        if (to == address(0)) {\\n            unchecked {\\n                // Overflow not possible: value <= totalSupply or value <= fromBalance <= totalSupply.\\n                _totalSupply -= value;\\n            }\\n        } else {\\n            unchecked {\\n                // Overflow not possible: balance + value is at most totalSupply, which we know fits into a uint256.\\n                _balances[to] += value;\\n            }\\n        }\\n\\n        emit Transfer(from, to, value);\\n    }\\n\\n    /**\\n     * @dev Creates a `value` amount of tokens and assigns them to `account`, by transferring it from address(0).\\n     * Relies on the `_update` mechanism\\n     *\\n     * Emits a {Transfer} event with `from` set to the zero address.\\n     *\\n     * NOTE: This function is not virtual, {_update} should be overridden instead.\\n     */\\n    function _mint(address account, uint256 value) internal {\\n        if (account == address(0)) {\\n            revert ERC20InvalidReceiver(address(0));\\n        }\\n        _update(address(0), account, value);\\n    }\\n\\n    /**\\n     * @dev Destroys a `value` amount of tokens from `account`, lowering the total supply.\\n     * Relies on the `_update` mechanism.\\n     *\\n     * Emits a {Transfer} event with `to` set to the zero address.\\n     *\\n     * NOTE: This function is not virtual, {_update} should be overridden instead\\n     */\\n    function _burn(address account, uint256 value) internal {\\n        if (account == address(0)) {\\n            revert ERC20InvalidSender(address(0));\\n        }\\n        _update(account, address(0), value);\\n    }\\n\\n    /**\\n     * @dev Sets `value` as the allowance of `spender` over the `owner` s tokens.\\n     *\\n     * This internal function is equivalent to `approve`, and can be used to\\n     * e.g. set automatic allowances for certain subsystems, etc.\\n     *\\n     * Emits an {Approval} event.\\n     *\\n     * Requirements:\\n     *\\n     * - `owner` cannot be the zero address.\\n     * - `spender` cannot be the zero address.\\n     *\\n     * Overrides to this logic should be done to the variant with an additional `bool emitEvent` argument.\\n     */\\n    function _approve(address owner, address spender, uint256 value) internal {\\n        _approve(owner, spender, value, true);\\n    }\\n\\n    /**\\n     * @dev Variant of {_approve} with an optional flag to enable or disable the {Approval} event.\\n     *\\n     * By default (when calling {_approve}) the flag is set to true. On the other hand, approval changes made by\\n     * `_spendAllowance` during the `transferFrom` operation set the flag to false. This saves gas by not emitting any\\n     * `Approval` event during `transferFrom` operations.\\n     *\\n     * Anyone who wishes to continue emitting `Approval` events on the`transferFrom` operation can force the flag to\\n     * true using the following override:\\n     * ```\\n     * function _approve(address owner, address spender, uint256 value, bool) internal virtual override {\\n     *     super._approve(owner, spender, value, true);\\n     * }\\n     * ```\\n     *\\n     * Requirements are the same as {_approve}.\\n     */\\n    function _approve(address owner, address spender, uint256 value, bool emitEvent) internal virtual {\\n        if (owner == address(0)) {\\n            revert ERC20InvalidApprover(address(0));\\n        }\\n        if (spender == address(0)) {\\n            revert ERC20InvalidSpender(address(0));\\n        }\\n        _allowances[owner][spender] = value;\\n        if (emitEvent) {\\n            emit Approval(owner, spender, value);\\n        }\\n    }\\n\\n    /**\\n     * @dev Updates `owner` s allowance for `spender` based on spent `value`.\\n     *\\n     * Does not update the allowance value in case of infinite allowance.\\n     * Revert if not enough allowance is available.\\n     *\\n     * Does not emit an {Approval} event.\\n     */\\n    function _spendAllowance(address owner, address spender, uint256 value) internal virtual {\\n        uint256 currentAllowance = allowance(owner, spender);\\n        if (currentAllowance != type(uint256).max) {\\n            if (currentAllowance < value) {\\n                revert ERC20InsufficientAllowance(spender, currentAllowance, value);\\n            }\\n            unchecked {\\n                _approve(owner, spender, currentAllowance - value, false);\\n            }\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0xc3e1fa9d1987f8d349dfb4d6fe93bf2ca014b52ba335cfac30bfe71e357e6f80\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (token/ERC20/IERC20.sol)\\n\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev Interface of the ERC20 standard as defined in the EIP.\\n */\\ninterface IERC20 {\\n    /**\\n     * @dev Emitted when `value` tokens are moved from one account (`from`) to\\n     * another (`to`).\\n     *\\n     * Note that `value` may be zero.\\n     */\\n    event Transfer(address indexed from, address indexed to, uint256 value);\\n\\n    /**\\n     * @dev Emitted when the allowance of a `spender` for an `owner` is set by\\n     * a call to {approve}. `value` is the new allowance.\\n     */\\n    event Approval(address indexed owner, address indexed spender, uint256 value);\\n\\n    /**\\n     * @dev Returns the value of tokens in existence.\\n     */\\n    function totalSupply() external view returns (uint256);\\n\\n    /**\\n     * @dev Returns the value of tokens owned by `account`.\\n     */\\n    function balanceOf(address account) external view returns (uint256);\\n\\n    /**\\n     * @dev Moves a `value` amount of tokens from the caller's account to `to`.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transfer(address to, uint256 value) external returns (bool);\\n\\n    /**\\n     * @dev Returns the remaining number of tokens that `spender` will be\\n     * allowed to spend on behalf of `owner` through {transferFrom}. This is\\n     * zero by default.\\n     *\\n     * This value changes when {approve} or {transferFrom} are called.\\n     */\\n    function allowance(address owner, address spender) external view returns (uint256);\\n\\n    /**\\n     * @dev Sets a `value` amount of tokens as the allowance of `spender` over the\\n     * caller's tokens.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * IMPORTANT: Beware that changing an allowance with this method brings the risk\\n     * that someone may use both the old and the new allowance by unfortunate\\n     * transaction ordering. One possible solution to mitigate this race\\n     * condition is to first reduce the spender's allowance to 0 and set the\\n     * desired value afterwards:\\n     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\\n     *\\n     * Emits an {Approval} event.\\n     */\\n    function approve(address spender, uint256 value) external returns (bool);\\n\\n    /**\\n     * @dev Moves a `value` amount of tokens from `from` to `to` using the\\n     * allowance mechanism. `value` is then deducted from the caller's\\n     * allowance.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transferFrom(address from, address to, uint256 value) external returns (bool);\\n}\\n\",\"keccak256\":\"0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (token/ERC20/extensions/IERC20Metadata.sol)\\n\\npragma solidity ^0.8.20;\\n\\nimport {IERC20} from \\\"../IERC20.sol\\\";\\n\\n/**\\n * @dev Interface for the optional metadata functions from the ERC20 standard.\\n */\\ninterface IERC20Metadata is IERC20 {\\n    /**\\n     * @dev Returns the name of the token.\\n     */\\n    function name() external view returns (string memory);\\n\\n    /**\\n     * @dev Returns the symbol of the token.\\n     */\\n    function symbol() external view returns (string memory);\\n\\n    /**\\n     * @dev Returns the decimals places of the token.\\n     */\\n    function decimals() external view returns (uint8);\\n}\\n\",\"keccak256\":\"0xaa761817f6cd7892fcf158b3c776b34551cde36f48ff9703d53898bc45a94ea2\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/Context.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.1) (utils/Context.sol)\\n\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract Context {\\n    function _msgSender() internal view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes calldata) {\\n        return msg.data;\\n    }\\n\\n    function _contextSuffixLength() internal view virtual returns (uint256) {\\n        return 0;\\n    }\\n}\\n\",\"keccak256\":\"0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2\",\"license\":\"MIT\"},\"contracts/interfaces/IScenarioVerifier.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\npragma solidity ^0.8.20;\\n\\nimport {IZKPVerifier} from \\\"@iden3/contracts/interfaces/IZKPVerifier.sol\\\";\\n\\n/// @title IScenarioVerifier\\n/// @notice Interface for the Scenario Verifier, extending the IZKPVerifier interface for scenario-specific verification using Zero-Knowledge Proofs (ZKPs).\\ninterface IScenarioVerifier is IZKPVerifier {\\n    /// @dev Structure representing a Zero-Knowledge Proof (ZKP) with its associated request ID and proof data.\\n    /// used in the allowUserForScenario call\\n    struct ZKP {\\n        uint64 requestId; // ID of the request associated with this ZKP.\\n        uint256[] inputs; // Inputs provided for the ZKP.\\n        uint256[2] a; // Component 'a' of the ZKP.\\n        uint256[2][2] b; // Component 'b' of the ZKP.\\n        uint256[2] c; // Component 'c' of the ZKP.\\n    }\\n\\n    /// @notice Checks if a user is allowed for the specific scenario.\\n    /// @param user The address of the user to check.\\n    /// @return Boolean indicating whether the user is allowed.\\n    function isAllowedForScenario(address user) external returns (bool);\\n\\n    /// @notice Processes a batch of ZKPs and attempts to whitelist the user for the scenario.\\n    /// @param zkps Array of ZKPs to be processed.\\n    /// @return Boolean indicating the success of the whitelisting process.\\n    function allowUserForScenario(ZKP[] calldata zkps) external returns (bool);\\n\\n    /// @notice Finalizes the check process for a user for all rules.\\n    /// @param user The address of the user to finalize the check for\\n    /// @return Boolean indicating whether the user was successfully allowed for the scenario.\\n    function finalizeAllowListScenario(address user) external returns (bool);\\n}\\n\",\"keccak256\":\"0x11f01422f6970d24d80ac8f427c4271c1cda0c46969ac6967a2198b58f6b5208\",\"license\":\"GPL-3.0\"},\"contracts/zkpVerifiers/NexeraZKPVerifier.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.20;\\n\\nimport \\\"@openzeppelin/contracts/access/Ownable.sol\\\";\\nimport {GenesisUtils} from \\\"@iden3/contracts/lib/GenesisUtils.sol\\\";\\nimport {ICircuitValidator} from \\\"@iden3/contracts/interfaces/ICircuitValidator.sol\\\";\\nimport {ZKPVerifier} from \\\"@iden3/contracts/verifiers/ZKPVerifier.sol\\\";\\n\\n/// @title NexeraZKPVerifier\\n/// @notice Extends ZKPVerifier to handle Zero-Knowledge Proof (ZKP) requests specifically for the Nexera system.\\n/// @dev We use this because we need _afterSetRequest to register the request ids\\ncontract NexeraZKPVerifier is ZKPVerifier {\\n    /// @dev Emitted when a ZKP request is set.\\n    /// @param requestId The ID of the ZKP request.\\n    /// @param data The data associated with the ZKP request.\\n    /// @param validator The circuit validator for the ZKP request.\\n    /// @param metadata Metadata associated with the request.\\n    event ZKPRequestSet(\\n        uint64 requestId,\\n        bytes data,\\n        ICircuitValidator validator,\\n        string metadata\\n    );\\n\\n    /// @dev Internal hook that is called after a ZKP request is set.\\n    /// @param requestId The ID of the request that was set.\\n    function _afterSetRequest(uint64 requestId) internal virtual {}\\n\\n    /// @notice Sets a Nexera ZKP request and emits an event.\\n    /// @param requestId The ID of the request to be set.\\n    /// @param request The ZKP request data.\\n    function setNexeraZKPRequest(\\n        uint64 requestId,\\n        ZKPRequest calldata request\\n    ) public onlyOwner {\\n        setZKPRequest(requestId, request);\\n        emit ZKPRequestSet(\\n            requestId,\\n            request.data,\\n            request.validator,\\n            request.metadata\\n        );\\n        _afterSetRequest(requestId);\\n    }\\n}\\n\",\"keccak256\":\"0xfb4cb7d5e0e72b282d0882871cdd81ec1db51aa42827478312ace8cb632b6d87\",\"license\":\"MIT\"},\"contracts/zkpVerifiers/ScenarioVerifier.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.20;\\n\\nimport {PrimitiveTypeUtils} from \\\"@iden3/contracts/lib/PrimitiveTypeUtils.sol\\\";\\nimport {ICircuitValidator} from \\\"@iden3/contracts/interfaces/ICircuitValidator.sol\\\";\\nimport \\\"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol\\\";\\nimport \\\"./NexeraZKPVerifier.sol\\\";\\nimport \\\"../interfaces/IScenarioVerifier.sol\\\";\\n\\n/// @title ScenarioVerifier\\n/// @notice This contract manages rules for a scenario using ZKP requests, including setting a request for a rule and allowing users who submit the right ZKPs\\ncontract ScenarioVerifier is\\n    Initializable,\\n    IScenarioVerifier,\\n    NexeraZKPVerifier\\n{\\n    // Array of registered rule IDs\\n    uint64[] public registeredRuleIDs;\\n\\n    // Mapping to check if a rule ID is registered\\n    mapping(uint64 => bool) public isRuleIdRegistered;\\n\\n    // Mapping for query request whitelist status by rule ID and address\\n    mapping(uint64 => mapping(address => bool)) public queryRequestWhitelist;\\n\\n    // Mapping for scenario whitelist status by address\\n    mapping(address => bool) public scenarioAllowList;\\n\\n    // Mapping to connect a Polygon ID to an address\\n    mapping(uint256 => address) public idToAddress;\\n\\n    // Mapping to connect an address to a Polygon ID\\n    mapping(address => uint256) public addressToId;\\n\\n    // Events\\n\\n    /// @dev Event emitted when a ZKPRequest is registered in the verifier\\n    event RequestRegistered(uint64 requestId);\\n\\n    /// @dev Event emitted when an address is associated with a Polygon ID\\n    event AddressIdConnection(address userAddress, uint256 userId);\\n\\n    /// @dev Event emitted when a user address is allowed for a request ID\\n    event UserAllowedForRequest(address userAddress, uint64 requestId);\\n\\n    /// @dev Event emitted when all ZKPs for a user are submitted\\n    event SubmitedAllZKPsForUser(address userAddress, ZKP[] zkps);\\n\\n    /// @dev Event emitted when an address is allowed for the scenario verifier\\n    event UserAllowedForScenario(address userAddress);\\n\\n    constructor() {\\n        _disableInitializers();\\n    }\\n\\n    /**\\n     * @dev Initialize proxied contract with owner\\n     * @param newOwner The address of the thing owner\\n     */\\n    function initialize(address newOwner) public initializer {\\n        _transferOwnership(newOwner);\\n    }\\n\\n    /// @notice Internal function called after setting a request to register the request ID\\n    /// @param requestId The ID of the request being set\\n    function _afterSetRequest(uint64 requestId) internal override {\\n        // If requestId is not registered, register it to the list of registeredRuleIDs\\n        if (!isRuleIdRegistered[requestId]) {\\n            registeredRuleIDs.push(requestId);\\n            isRuleIdRegistered[requestId] = true;\\n            emit RequestRegistered(requestId);\\n        }\\n    }\\n\\n    /// @notice Internal function called before submitting a proof, checks the sender address\\n    /// @param inputs Array of inputs for the proof\\n    /// @param validator The circuit validator\\n    function _beforeProofSubmit(\\n        uint64 /* requestId */,\\n        uint256[] memory inputs,\\n        ICircuitValidator validator\\n    ) internal view override {\\n        // check that challenge input is address of sender\\n        address addr = PrimitiveTypeUtils.uint256LEToAddress(\\n            inputs[validator.inputIndexOf(\\\"challenge\\\")]\\n        );\\n        require(\\n            _msgSender() == addr,\\n            \\\"address in proof is not a sender address\\\"\\n        );\\n    }\\n\\n    /// @notice Internal function called after submitting a proof, links id and address and allows user for the request/rule\\n    /// @param requestId The ID of the request being processed\\n    /// @param inputs Array of inputs for the proof\\n    /// @param _validator The circuit validator\\n    function _afterProofSubmit(\\n        uint64 requestId,\\n        uint256[] memory inputs,\\n        ICircuitValidator _validator\\n    ) internal override {\\n        // get user id and register it\\n        uint256 id = inputs[1];\\n        addressToId[_msgSender()] = id;\\n        idToAddress[id] = _msgSender();\\n        emit AddressIdConnection(_msgSender(), id);\\n\\n        // Whitelist user for this rule\\n        queryRequestWhitelist[requestId][_msgSender()] = true;\\n        emit UserAllowedForRequest(_msgSender(), requestId);\\n    }\\n\\n    /// @dev Once the user is allowed for all rules, call this function to finalize\\n    /// (this is more gas efficient than iterating over rules on every submission)\\n    /// @notice Finalizes the whitelisting of a user for all rules\\n    /// @param user The address of the user to check\\n    /// @return isUserWhitelisted True if the user is allowed for all rules\\n    function finalizeAllowListScenario(address user) public returns (bool) {\\n        bool isUserWhitelisted = true;\\n        uint numberOfRules = registeredRuleIDs.length;\\n        for (uint i = 0; i < numberOfRules; ) {\\n            isUserWhitelisted = queryRequestWhitelist[registeredRuleIDs[i]][\\n                user\\n            ];\\n            if (!isUserWhitelisted) {\\n                break;\\n            }\\n            unchecked {\\n                i++;\\n            }\\n        }\\n        scenarioAllowList[user] = isUserWhitelisted;\\n        emit UserAllowedForScenario(user);\\n        return isUserWhitelisted;\\n    }\\n\\n    /// @notice Submits all ZKPs and allowlists a user in one call\\n    /// @param zkps Array of ZKPs to submit\\n    /// @return Boolean indicating the success of the operation\\n    function allowUserForScenario(ZKP[] calldata zkps) public returns (bool) {\\n        uint numberOfZKPs = zkps.length;\\n        for (uint i = 0; i < numberOfZKPs; ) {\\n            submitZKPResponse(\\n                zkps[i].requestId,\\n                zkps[i].inputs,\\n                zkps[i].a,\\n                zkps[i].b,\\n                zkps[i].c\\n            );\\n            unchecked {\\n                i++;\\n            }\\n        }\\n        emit SubmitedAllZKPsForUser(msg.sender, zkps);\\n        return finalizeAllowListScenario(msg.sender);\\n    }\\n\\n    /// @notice Checks if a user is allowed for the scenario\\n    /// @param user The address of the user to check\\n    /// @return Boolean indicating if the user is allowed for the scenario\\n    function isAllowedForScenario(address user) public view returns (bool) {\\n        return scenarioAllowList[user];\\n    }\\n}\\n\",\"keccak256\":\"0x306a8ff74f1f19839be529e0f18e79db5991883ebb1e6f7c23f1f3bc6648fd4d\",\"license\":\"MIT\"},\"solidity-bytes-utils/contracts/BytesLib.sol\":{\"content\":\"// SPDX-License-Identifier: Unlicense\\n/*\\n * @title Solidity Bytes Arrays Utils\\n * @author Gon\\u00e7alo S\\u00e1 <goncalo.sa@consensys.net>\\n *\\n * @dev Bytes tightly packed arrays utility library for ethereum contracts written in Solidity.\\n *      The library lets you concatenate, slice and type cast bytes arrays both in memory and storage.\\n */\\npragma solidity >=0.8.0 <0.9.0;\\n\\n\\nlibrary BytesLib {\\n    function concat(\\n        bytes memory _preBytes,\\n        bytes memory _postBytes\\n    )\\n        internal\\n        pure\\n        returns (bytes memory)\\n    {\\n        bytes memory tempBytes;\\n\\n        assembly {\\n            // Get a location of some free memory and store it in tempBytes as\\n            // Solidity does for memory variables.\\n            tempBytes := mload(0x40)\\n\\n            // Store the length of the first bytes array at the beginning of\\n            // the memory for tempBytes.\\n            let length := mload(_preBytes)\\n            mstore(tempBytes, length)\\n\\n            // Maintain a memory counter for the current write location in the\\n            // temp bytes array by adding the 32 bytes for the array length to\\n            // the starting location.\\n            let mc := add(tempBytes, 0x20)\\n            // Stop copying when the memory counter reaches the length of the\\n            // first bytes array.\\n            let end := add(mc, length)\\n\\n            for {\\n                // Initialize a copy counter to the start of the _preBytes data,\\n                // 32 bytes into its memory.\\n                let cc := add(_preBytes, 0x20)\\n            } lt(mc, end) {\\n                // Increase both counters by 32 bytes each iteration.\\n                mc := add(mc, 0x20)\\n                cc := add(cc, 0x20)\\n            } {\\n                // Write the _preBytes data into the tempBytes memory 32 bytes\\n                // at a time.\\n                mstore(mc, mload(cc))\\n            }\\n\\n            // Add the length of _postBytes to the current length of tempBytes\\n            // and store it as the new length in the first 32 bytes of the\\n            // tempBytes memory.\\n            length := mload(_postBytes)\\n            mstore(tempBytes, add(length, mload(tempBytes)))\\n\\n            // Move the memory counter back from a multiple of 0x20 to the\\n            // actual end of the _preBytes data.\\n            mc := end\\n            // Stop copying when the memory counter reaches the new combined\\n            // length of the arrays.\\n            end := add(mc, length)\\n\\n            for {\\n                let cc := add(_postBytes, 0x20)\\n            } lt(mc, end) {\\n                mc := add(mc, 0x20)\\n                cc := add(cc, 0x20)\\n            } {\\n                mstore(mc, mload(cc))\\n            }\\n\\n            // Update the free-memory pointer by padding our last write location\\n            // to 32 bytes: add 31 bytes to the end of tempBytes to move to the\\n            // next 32 byte block, then round down to the nearest multiple of\\n            // 32. If the sum of the length of the two arrays is zero then add\\n            // one before rounding down to leave a blank 32 bytes (the length block with 0).\\n            mstore(0x40, and(\\n              add(add(end, iszero(add(length, mload(_preBytes)))), 31),\\n              not(31) // Round down to the nearest 32 bytes.\\n            ))\\n        }\\n\\n        return tempBytes;\\n    }\\n\\n    function concatStorage(bytes storage _preBytes, bytes memory _postBytes) internal {\\n        assembly {\\n            // Read the first 32 bytes of _preBytes storage, which is the length\\n            // of the array. (We don't need to use the offset into the slot\\n            // because arrays use the entire slot.)\\n            let fslot := sload(_preBytes.slot)\\n            // Arrays of 31 bytes or less have an even value in their slot,\\n            // while longer arrays have an odd value. The actual length is\\n            // the slot divided by two for odd values, and the lowest order\\n            // byte divided by two for even values.\\n            // If the slot is even, bitwise and the slot with 255 and divide by\\n            // two to get the length. If the slot is odd, bitwise and the slot\\n            // with -1 and divide by two.\\n            let slength := div(and(fslot, sub(mul(0x100, iszero(and(fslot, 1))), 1)), 2)\\n            let mlength := mload(_postBytes)\\n            let newlength := add(slength, mlength)\\n            // slength can contain both the length and contents of the array\\n            // if length < 32 bytes so let's prepare for that\\n            // v. http://solidity.readthedocs.io/en/latest/miscellaneous.html#layout-of-state-variables-in-storage\\n            switch add(lt(slength, 32), lt(newlength, 32))\\n            case 2 {\\n                // Since the new array still fits in the slot, we just need to\\n                // update the contents of the slot.\\n                // uint256(bytes_storage) = uint256(bytes_storage) + uint256(bytes_memory) + new_length\\n                sstore(\\n                    _preBytes.slot,\\n                    // all the modifications to the slot are inside this\\n                    // next block\\n                    add(\\n                        // we can just add to the slot contents because the\\n                        // bytes we want to change are the LSBs\\n                        fslot,\\n                        add(\\n                            mul(\\n                                div(\\n                                    // load the bytes from memory\\n                                    mload(add(_postBytes, 0x20)),\\n                                    // zero all bytes to the right\\n                                    exp(0x100, sub(32, mlength))\\n                                ),\\n                                // and now shift left the number of bytes to\\n                                // leave space for the length in the slot\\n                                exp(0x100, sub(32, newlength))\\n                            ),\\n                            // increase length by the double of the memory\\n                            // bytes length\\n                            mul(mlength, 2)\\n                        )\\n                    )\\n                )\\n            }\\n            case 1 {\\n                // The stored value fits in the slot, but the combined value\\n                // will exceed it.\\n                // get the keccak hash to get the contents of the array\\n                mstore(0x0, _preBytes.slot)\\n                let sc := add(keccak256(0x0, 0x20), div(slength, 32))\\n\\n                // save new length\\n                sstore(_preBytes.slot, add(mul(newlength, 2), 1))\\n\\n                // The contents of the _postBytes array start 32 bytes into\\n                // the structure. Our first read should obtain the `submod`\\n                // bytes that can fit into the unused space in the last word\\n                // of the stored array. To get this, we read 32 bytes starting\\n                // from `submod`, so the data we read overlaps with the array\\n                // contents by `submod` bytes. Masking the lowest-order\\n                // `submod` bytes allows us to add that value directly to the\\n                // stored value.\\n\\n                let submod := sub(32, slength)\\n                let mc := add(_postBytes, submod)\\n                let end := add(_postBytes, mlength)\\n                let mask := sub(exp(0x100, submod), 1)\\n\\n                sstore(\\n                    sc,\\n                    add(\\n                        and(\\n                            fslot,\\n                            0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00\\n                        ),\\n                        and(mload(mc), mask)\\n                    )\\n                )\\n\\n                for {\\n                    mc := add(mc, 0x20)\\n                    sc := add(sc, 1)\\n                } lt(mc, end) {\\n                    sc := add(sc, 1)\\n                    mc := add(mc, 0x20)\\n                } {\\n                    sstore(sc, mload(mc))\\n                }\\n\\n                mask := exp(0x100, sub(mc, end))\\n\\n                sstore(sc, mul(div(mload(mc), mask), mask))\\n            }\\n            default {\\n                // get the keccak hash to get the contents of the array\\n                mstore(0x0, _preBytes.slot)\\n                // Start copying to the last used word of the stored array.\\n                let sc := add(keccak256(0x0, 0x20), div(slength, 32))\\n\\n                // save new length\\n                sstore(_preBytes.slot, add(mul(newlength, 2), 1))\\n\\n                // Copy over the first `submod` bytes of the new data as in\\n                // case 1 above.\\n                let slengthmod := mod(slength, 32)\\n                let mlengthmod := mod(mlength, 32)\\n                let submod := sub(32, slengthmod)\\n                let mc := add(_postBytes, submod)\\n                let end := add(_postBytes, mlength)\\n                let mask := sub(exp(0x100, submod), 1)\\n\\n                sstore(sc, add(sload(sc), and(mload(mc), mask)))\\n\\n                for {\\n                    sc := add(sc, 1)\\n                    mc := add(mc, 0x20)\\n                } lt(mc, end) {\\n                    sc := add(sc, 1)\\n                    mc := add(mc, 0x20)\\n                } {\\n                    sstore(sc, mload(mc))\\n                }\\n\\n                mask := exp(0x100, sub(mc, end))\\n\\n                sstore(sc, mul(div(mload(mc), mask), mask))\\n            }\\n        }\\n    }\\n\\n    function slice(\\n        bytes memory _bytes,\\n        uint256 _start,\\n        uint256 _length\\n    )\\n        internal\\n        pure\\n        returns (bytes memory)\\n    {\\n        require(_length + 31 >= _length, \\\"slice_overflow\\\");\\n        require(_bytes.length >= _start + _length, \\\"slice_outOfBounds\\\");\\n\\n        bytes memory tempBytes;\\n\\n        assembly {\\n            switch iszero(_length)\\n            case 0 {\\n                // Get a location of some free memory and store it in tempBytes as\\n                // Solidity does for memory variables.\\n                tempBytes := mload(0x40)\\n\\n                // The first word of the slice result is potentially a partial\\n                // word read from the original array. To read it, we calculate\\n                // the length of that partial word and start copying that many\\n                // bytes into the array. The first word we copy will start with\\n                // data we don't care about, but the last `lengthmod` bytes will\\n                // land at the beginning of the contents of the new array. When\\n                // we're done copying, we overwrite the full first word with\\n                // the actual length of the slice.\\n                let lengthmod := and(_length, 31)\\n\\n                // The multiplication in the next line is necessary\\n                // because when slicing multiples of 32 bytes (lengthmod == 0)\\n                // the following copy loop was copying the origin's length\\n                // and then ending prematurely not copying everything it should.\\n                let mc := add(add(tempBytes, lengthmod), mul(0x20, iszero(lengthmod)))\\n                let end := add(mc, _length)\\n\\n                for {\\n                    // The multiplication in the next line has the same exact purpose\\n                    // as the one above.\\n                    let cc := add(add(add(_bytes, lengthmod), mul(0x20, iszero(lengthmod))), _start)\\n                } lt(mc, end) {\\n                    mc := add(mc, 0x20)\\n                    cc := add(cc, 0x20)\\n                } {\\n                    mstore(mc, mload(cc))\\n                }\\n\\n                mstore(tempBytes, _length)\\n\\n                //update free-memory pointer\\n                //allocating the array padded to 32 bytes like the compiler does now\\n                mstore(0x40, and(add(mc, 31), not(31)))\\n            }\\n            //if we want a zero-length slice let's just return a zero-length array\\n            default {\\n                tempBytes := mload(0x40)\\n                //zero out the 32 bytes slice we are about to return\\n                //we need to do it because Solidity does not garbage collect\\n                mstore(tempBytes, 0)\\n\\n                mstore(0x40, add(tempBytes, 0x20))\\n            }\\n        }\\n\\n        return tempBytes;\\n    }\\n\\n    function toAddress(bytes memory _bytes, uint256 _start) internal pure returns (address) {\\n        require(_bytes.length >= _start + 20, \\\"toAddress_outOfBounds\\\");\\n        address tempAddress;\\n\\n        assembly {\\n            tempAddress := div(mload(add(add(_bytes, 0x20), _start)), 0x1000000000000000000000000)\\n        }\\n\\n        return tempAddress;\\n    }\\n\\n    function toUint8(bytes memory _bytes, uint256 _start) internal pure returns (uint8) {\\n        require(_bytes.length >= _start + 1 , \\\"toUint8_outOfBounds\\\");\\n        uint8 tempUint;\\n\\n        assembly {\\n            tempUint := mload(add(add(_bytes, 0x1), _start))\\n        }\\n\\n        return tempUint;\\n    }\\n\\n    function toUint16(bytes memory _bytes, uint256 _start) internal pure returns (uint16) {\\n        require(_bytes.length >= _start + 2, \\\"toUint16_outOfBounds\\\");\\n        uint16 tempUint;\\n\\n        assembly {\\n            tempUint := mload(add(add(_bytes, 0x2), _start))\\n        }\\n\\n        return tempUint;\\n    }\\n\\n    function toUint32(bytes memory _bytes, uint256 _start) internal pure returns (uint32) {\\n        require(_bytes.length >= _start + 4, \\\"toUint32_outOfBounds\\\");\\n        uint32 tempUint;\\n\\n        assembly {\\n            tempUint := mload(add(add(_bytes, 0x4), _start))\\n        }\\n\\n        return tempUint;\\n    }\\n\\n    function toUint64(bytes memory _bytes, uint256 _start) internal pure returns (uint64) {\\n        require(_bytes.length >= _start + 8, \\\"toUint64_outOfBounds\\\");\\n        uint64 tempUint;\\n\\n        assembly {\\n            tempUint := mload(add(add(_bytes, 0x8), _start))\\n        }\\n\\n        return tempUint;\\n    }\\n\\n    function toUint96(bytes memory _bytes, uint256 _start) internal pure returns (uint96) {\\n        require(_bytes.length >= _start + 12, \\\"toUint96_outOfBounds\\\");\\n        uint96 tempUint;\\n\\n        assembly {\\n            tempUint := mload(add(add(_bytes, 0xc), _start))\\n        }\\n\\n        return tempUint;\\n    }\\n\\n    function toUint128(bytes memory _bytes, uint256 _start) internal pure returns (uint128) {\\n        require(_bytes.length >= _start + 16, \\\"toUint128_outOfBounds\\\");\\n        uint128 tempUint;\\n\\n        assembly {\\n            tempUint := mload(add(add(_bytes, 0x10), _start))\\n        }\\n\\n        return tempUint;\\n    }\\n\\n    function toUint256(bytes memory _bytes, uint256 _start) internal pure returns (uint256) {\\n        require(_bytes.length >= _start + 32, \\\"toUint256_outOfBounds\\\");\\n        uint256 tempUint;\\n\\n        assembly {\\n            tempUint := mload(add(add(_bytes, 0x20), _start))\\n        }\\n\\n        return tempUint;\\n    }\\n\\n    function toBytes32(bytes memory _bytes, uint256 _start) internal pure returns (bytes32) {\\n        require(_bytes.length >= _start + 32, \\\"toBytes32_outOfBounds\\\");\\n        bytes32 tempBytes32;\\n\\n        assembly {\\n            tempBytes32 := mload(add(add(_bytes, 0x20), _start))\\n        }\\n\\n        return tempBytes32;\\n    }\\n\\n    function equal(bytes memory _preBytes, bytes memory _postBytes) internal pure returns (bool) {\\n        bool success = true;\\n\\n        assembly {\\n            let length := mload(_preBytes)\\n\\n            // if lengths don't match the arrays are not equal\\n            switch eq(length, mload(_postBytes))\\n            case 1 {\\n                // cb is a circuit breaker in the for loop since there's\\n                //  no said feature for inline assembly loops\\n                // cb = 1 - don't breaker\\n                // cb = 0 - break\\n                let cb := 1\\n\\n                let mc := add(_preBytes, 0x20)\\n                let end := add(mc, length)\\n\\n                for {\\n                    let cc := add(_postBytes, 0x20)\\n                // the next line is the loop condition:\\n                // while(uint256(mc < end) + cb == 2)\\n                } eq(add(lt(mc, end), cb), 2) {\\n                    mc := add(mc, 0x20)\\n                    cc := add(cc, 0x20)\\n                } {\\n                    // if any of these checks fails then arrays are not equal\\n                    if iszero(eq(mload(mc), mload(cc))) {\\n                        // unsuccess:\\n                        success := 0\\n                        cb := 0\\n                    }\\n                }\\n            }\\n            default {\\n                // unsuccess:\\n                success := 0\\n            }\\n        }\\n\\n        return success;\\n    }\\n\\n    function equal_nonAligned(bytes memory _preBytes, bytes memory _postBytes) internal pure returns (bool) {\\n        bool success = true;\\n\\n        assembly {\\n            let length := mload(_preBytes)\\n\\n            // if lengths don't match the arrays are not equal\\n            switch eq(length, mload(_postBytes))\\n            case 1 {\\n                // cb is a circuit breaker in the for loop since there's\\n                //  no said feature for inline assembly loops\\n                // cb = 1 - don't breaker\\n                // cb = 0 - break\\n                let cb := 1\\n\\n                let endMinusWord := add(_preBytes, length)\\n                let mc := add(_preBytes, 0x20)\\n                let cc := add(_postBytes, 0x20)\\n\\n                for {\\n                // the next line is the loop condition:\\n                // while(uint256(mc < endWord) + cb == 2)\\n                } eq(add(lt(mc, endMinusWord), cb), 2) {\\n                    mc := add(mc, 0x20)\\n                    cc := add(cc, 0x20)\\n                } {\\n                    // if any of these checks fails then arrays are not equal\\n                    if iszero(eq(mload(mc), mload(cc))) {\\n                        // unsuccess:\\n                        success := 0\\n                        cb := 0\\n                    }\\n                }\\n\\n                // Only if still successful\\n                // For <1 word tail bytes\\n                if gt(success, 0) {\\n                    // Get the remainder of length/32\\n                    // length % 32 = AND(length, 32 - 1)\\n                    let numTailBytes := and(length, 0x1f)\\n                    let mcRem := mload(mc)\\n                    let ccRem := mload(cc)\\n                    for {\\n                        let i := 0\\n                    // the next line is the loop condition:\\n                    // while(uint256(i < numTailBytes) + cb == 2)\\n                    } eq(add(lt(i, numTailBytes), cb), 2) {\\n                        i := add(i, 1)\\n                    } {\\n                        if iszero(eq(byte(i, mcRem), byte(i, ccRem))) {\\n                            // unsuccess:\\n                            success := 0\\n                            cb := 0\\n                        }\\n                    }\\n                }\\n            }\\n            default {\\n                // unsuccess:\\n                success := 0\\n            }\\n        }\\n\\n        return success;\\n    }\\n\\n    function equalStorage(\\n        bytes storage _preBytes,\\n        bytes memory _postBytes\\n    )\\n        internal\\n        view\\n        returns (bool)\\n    {\\n        bool success = true;\\n\\n        assembly {\\n            // we know _preBytes_offset is 0\\n            let fslot := sload(_preBytes.slot)\\n            // Decode the length of the stored array like in concatStorage().\\n            let slength := div(and(fslot, sub(mul(0x100, iszero(and(fslot, 1))), 1)), 2)\\n            let mlength := mload(_postBytes)\\n\\n            // if lengths don't match the arrays are not equal\\n            switch eq(slength, mlength)\\n            case 1 {\\n                // slength can contain both the length and contents of the array\\n                // if length < 32 bytes so let's prepare for that\\n                // v. http://solidity.readthedocs.io/en/latest/miscellaneous.html#layout-of-state-variables-in-storage\\n                if iszero(iszero(slength)) {\\n                    switch lt(slength, 32)\\n                    case 1 {\\n                        // blank the last byte which is the length\\n                        fslot := mul(div(fslot, 0x100), 0x100)\\n\\n                        if iszero(eq(fslot, mload(add(_postBytes, 0x20)))) {\\n                            // unsuccess:\\n                            success := 0\\n                        }\\n                    }\\n                    default {\\n                        // cb is a circuit breaker in the for loop since there's\\n                        //  no said feature for inline assembly loops\\n                        // cb = 1 - don't breaker\\n                        // cb = 0 - break\\n                        let cb := 1\\n\\n                        // get the keccak hash to get the contents of the array\\n                        mstore(0x0, _preBytes.slot)\\n                        let sc := keccak256(0x0, 0x20)\\n\\n                        let mc := add(_postBytes, 0x20)\\n                        let end := add(mc, mlength)\\n\\n                        // the next line is the loop condition:\\n                        // while(uint256(mc < end) + cb == 2)\\n                        for {} eq(add(lt(mc, end), cb), 2) {\\n                            sc := add(sc, 1)\\n                            mc := add(mc, 0x20)\\n                        } {\\n                            if iszero(eq(sload(sc), mload(mc))) {\\n                                // unsuccess:\\n                                success := 0\\n                                cb := 0\\n                            }\\n                        }\\n                    }\\n                }\\n            }\\n            default {\\n                // unsuccess:\\n                success := 0\\n            }\\n        }\\n\\n        return success;\\n    }\\n}\\n\",\"keccak256\":\"0xa5b10f04797d5a10a9ba07855108b6bd695940e6a3d128927b2f74a0d359868a\",\"license\":\"Unlicense\"}},\"version\":1}",
+  "bytecode": "0x608080604052346100b8577ff0c57e16840df040f15088dc2f81fe391c3923bec73e23a9662efc9c229c6a009081549060ff8260401c166100a957506001600160401b036002600160401b031982821601610064575b6040516121c790816100be8239f35b6001600160401b031990911681179091556040519081527fc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d290602090a1388080610055565b63f92ee8a960e01b8152600490fd5b600080fdfe6080604052600436101561001257600080fd5b60003560e01c806315be5190146101925780631905e7b11461018d578063197bf195146101885780632a2d0c47146101835780632e01bb6f1461017e578063398cfb76146101745780635f9e60d71461017957806360fc1cb5146101745780636508e1b41461016f5780636d76b3631461016a578063715018a61461016557806371941da51461016057806379ba50971461015b5780638da5cb5b146101565780639f5223e014610151578063a9b9e3e11461014c578063ab7bcfb714610147578063b68967e214610142578063c4d66de81461013d578063c76d084514610138578063cb0e0d7d14610133578063e30c39781461012e578063f2fde38b146101295763f82ddf0a1461012457600080fd5b610f6a565b610edf565b610ea9565b610e6c565b610dcb565b610c9b565b610b78565b610b51565b610b20565b6109c2565b61094e565b6108f9565b6108b8565b61078d565b610730565b610705565b61043a565b610565565b6103dd565b610398565b610355565b6102ef565b6101cc565b9181601f840112156101c7578235916001600160401b0383116101c7576020808501948460051b0101116101c757565b600080fd5b346101c7576020806003193601126101c7576001600160401b03906004358281116101c7576101ff903690600401610197565b9160005b838110610261576040517fefbe0f7f95f99f3446b18c397ba10fec2af0a6ef272d84266ccb64303fd469ef908061023c87873384612006565b0390a161025d61024b33611eda565b60405190151581529081906020820190565b0390f35b61026c818585611fbb565b35906102778261030c565b610282818686611fbb565b8381013590601e19813603018212156101c757018035908782116101c7578401928160051b360384136101c7576001936102e99260406102c3868b8b611fbb565b019060806102d2878c8c611fbb565b01926101006102e2888d8d611fbb565b0194611507565b01610203565b346101c75760003660031901126101c75760206040516103e88152f35b6001600160401b038116036101c757565b6001600160401b03166000527f512d18c55869273fec77e70d8a8586e3fb133e90f1db24c6bcf4ff3506ef6a01602052604060002090565b346101c75760203660031901126101c7576001600160401b0360043561037a8161030c565b166000526001602052602060ff604060002054166040519015158152f35b346101c75760203660031901126101c7576004356000526004602052602060018060a01b0360406000205416604051908152f35b6001600160a01b038116036101c757565b346101c75760403660031901126101c757602060ff61042e600435610401816103cc565b610416602435916104118361030c565b6106cc565b906001600160401b0316600052602052604060002090565b54166040519015158152f35b346101c75760203660031901126101c757600435610457816103cc565b60018060a01b03166000526003602052602060ff604060002054166040519015158152f35b60005b83811061048f5750506000910152565b818101518382015260200161047f565b906020916104b88151809281855285808601910161047c565b601f01601f1916010190565b6105009160406104dd835160608452606084019061049f565b9260018060a01b036020820151166020840152015190604081840391015261049f565b90565b602080820190808352835180925260408301928160408460051b8301019501936000915b8483106105375750505050505090565b9091929394958480610555600193603f198682030187528a516104c4565b9801930193019194939290610527565b346101c75760403660031901126101c75760043560243560008051602061211283398151915254908015610687576103e8811161064a576105b1906105ab838510611913565b8361195f565b90808211610642575b506105cd6105c883836118a2565b6118af565b91805b8281106105e5576040518061025d8682610503565b8061063761061361060e6105fb61063d95610828565b90546001600160401b039160031b1c1690565b61031d565b61062661062086856118a2565b9161161e565b61063082896118ff565b52866118ff565b50611833565b6105d0565b9050386105ba565b60405162461bcd60e51b815260206004820152601560248201527413195b99dd1a081b1a5b5a5d08195e18d959591959605a1b6044820152606490fd5b60405162461bcd60e51b815260206004820152601f60248201527f4c656e6774682073686f756c642062652067726561746572207468616e2030006044820152606490fd5b6001600160a01b031660009081527f512d18c55869273fec77e70d8a8586e3fb133e90f1db24c6bcf4ff3506ef6a006020526040902090565b346101c75760003660031901126101c757602060008051602061211283398151915254604051908152f35b346101c75760403660031901126101c757602060ff61042e6004356107548161030c565b6001600160401b0360243591610769836103cc565b166000526002845260406000209060018060a01b0316600052602052604060002090565b346101c75760008060031936011261080f576107a76119da565b60008051602061217283398151915280546001600160a01b03199081169091556000805160206121328339815191528054918216905581906001600160a01b03167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e08280a380f35b80fd5b634e487b7160e01b600052603260045260246000fd5b9060008051602061211283398151915280548310156108745760005260188260021c7f1fe3fe50d7f73453bbdfdc1f93126676827407269733e888e486d0fbdf4a2c31019260031b1690565b610812565b90600054821015610874576000805260188260021c7f290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e563019260031b1690565b346101c75760203660031901126101c7576004356000548110156101c7576001600160401b036108e9602092610879565b9190546040519260031b1c168152f35b346101c75760003660031901126101c75760008051602061217283398151915254336001600160a01b0390911603610936576109343361196c565b005b60405163118cdaa760e01b8152336004820152602490fd5b346101c75760003660031901126101c757600080516020612132833981519152546040516001600160a01b039091168152602090f35b906003196040818401126101c75760043561099e8161030c565b92602435916001600160401b0383116101c757826060920301126101c75760040190565b346101c7576109d036610984565b906109d96119da565b6109e28161031d565b6109ec838061167b565b6001600160401b038195929511610b1b57610a1181610a0b85546113b0565b856116ad565b6000601f8211600114610aa15760029282610a919593610a889361093499600092610a96575b50508160011b916000199060031b1c19161783555b610a7e610a5b60208301611701565b6001850180546001600160a01b0319166001600160a01b03909216919091179055565b604081019061167b565b9290910161170b565b6117d2565b013590503880610a37565b601f19821690610ab685600052602060002090565b91815b818110610b03575083610a88936109349960029794610a91999760019510610ae9575b505050811b018355610a4c565b0135600019600384901b60f8161c19169055388080610adc565b9192602060018192868c013581550194019201610ab9565b611198565b346101c75760203660031901126101c7576020610b47600435610b42816103cc565b611eda565b6040519015158152f35b346101c75760203660031901126101c7576020610b47600435610b738161030c565b611847565b346101c7576101403660031901126101c757600435610b968161030c565b6024356001600160401b0381116101c757610bb5903690600401610197565b919091366084116101c75736610104116101c75736610144116101c757610c30926000610be18461031d565b60018101546001600160a01b0316610bfa81151561113b565b610c0e81610c0936888861121c565b611b7c565b60405180809881946378bbd34f60e11b83526002339101898960048601611480565b03915afa918215610c965761093494610c6d93610c73575b50610c66610c5985610416336106cc565b805460ff19166001179055565b369161121c565b90611dfd565b610c8f903d806000833e610c8781836111e4565b810190611285565b5038610c48565b6114fb565b346101c75760203660031901126101c757600435610cb8816103cc565b60008051602061215283398151915254906001600160401b0360ff8360401c1615921680159081610dc3575b6001149081610db9575b159081610db0575b50610d9e57600080516020612152833981519152805467ffffffffffffffff19166001179055610d2a9082610d795761196c565b610d3057005b600080516020612152833981519152805460ff60401b19169055604051600181527fc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d290602090a1005b600080516020612152833981519152805460ff60401b1916600160401b17905561196c565b60405163f92ee8a960e01b8152600490fd5b90501538610cf6565b303b159150610cee565b839150610ce4565b346101c75760203660031901126101c757600435610de88161030c565b610df06115fe565b50610dfa81611847565b15610e2757610e13610e0e61025d9261031d565b61161e565b6040519182916020835260208301906104c4565b60405162461bcd60e51b815260206004820152601860248201527f7265717565737420696420646f65736e277420657869737400000000000000006044820152606490fd5b346101c75760203660031901126101c757600435610e89816103cc565b60018060a01b031660005260056020526020604060002054604051908152f35b346101c75760003660031901126101c757600080516020612172833981519152546040516001600160a01b039091168152602090f35b346101c75760203660031901126101c757600435610efc816103cc565b610f046119da565b60008051602061217283398151915280546001600160a01b0319166001600160a01b03928316908117909155600080516020612132833981519152549091167f38d16b8cac22d99fc7c124b9cd0de2d3fa1faef420bfe791d8c362d765e22700600080a3005b346101c757610f7836610984565b90610f816119da565b610f896119da565b610f928161031d565b610f9c838061167b565b6001600160401b038195929511610b1b57610fbb81610a0b85546113b0565b6000601f82116001146110a25761107a92827febf5fc5d525575febff148871346e1458de02c705c900ba0bc9b5361d5eba08a959361108f9361093499600092611097575b50508160011b916000199060031b1c19161783555b611081611072602083019461104f61102c87611701565b6001830180546001600160a01b0319166001600160a01b03909216919091179055565b61106360026040860192610a88848861167b565b61106c896117d2565b8361167b565b959094611701565b918061167b565b916040519586958987611a1c565b0390a1611a62565b013590503880611000565b601f198216906110b785600052602060002090565b91815b81811061112357508361108f936109349961107a97947febf5fc5d525575febff148871346e1458de02c705c900ba0bc9b5361d5eba08a999760019510611109575b505050811b018355611015565b0135600019600384901b60f8161c191690553880806110fc565b9192602060018192868c0135815501940192016110ba565b1561114257565b60405162461bcd60e51b815260206004820152602860248201527f76616c696461746f72206973206e6f742073657420666f7220746869732072656044820152671c5d595cdd081a5960c21b6064820152608490fd5b634e487b7160e01b600052604160045260246000fd5b604081019081106001600160401b03821117610b1b57604052565b606081019081106001600160401b03821117610b1b57604052565b90601f801991011681019081106001600160401b03821117610b1b57604052565b6001600160401b038111610b1b5760051b60200190565b929161122782611205565b9161123560405193846111e4565b829481845260208094019160051b81019283116101c757905b82821061125b5750505050565b8135815290830190830161124e565b6001600160401b038111610b1b57601f01601f191660200190565b9060209081838203126101c75782516001600160401b03938482116101c757019080601f830112156101c75781516112bc81611205565b9460406112cb815197886111e4565b828752858088019360051b860101948486116101c757868101935b8685106112f857505050505050505090565b84518481116101c75782019083601f1983890301126101c75783519061131d826111ae565b898301518681116101c75783019188603f840112156101c7578a8301516113438161126a565b94611350885196876111e4565b8186528a8883870101116101c7578561137389938f9897858a809a01910161047c565b83520151838201528152019401936112e6565b81835290916001600160fb1b0383116101c75760209260051b809284830137010190565b60409137565b90600182811c921680156113e0575b60208310146113ca57565b634e487b7160e01b600052602260045260246000fd5b91607f16916113bf565b90600092918054916113fb836113b0565b91828252600193848116908160001461145d575060011461141d575b50505050565b90919394506000526020928360002092846000945b838610611449575050505001019038808080611417565b805485870183015294019385908201611432565b9294505050602093945060ff191683830152151560051b01019038808080611417565b92919061149891959495610160808652850191611386565b906040806044602086013760846000606086015b600282106114e657505050916114d6916101409361010460e08701378482036101208601526113ea565b6001600160a01b03909416910152565b838082818660019537019301910190916114ac565b6040513d6000823e3d90fd5b9394909192946115168561031d565b9560019660018060a01b0388820154169361153285151561113b565b61154185610c09368a8a61121c565b6040908151998a956378bbd34f60e11b875261016060048801528361156b61016489018c8c611386565b9660248901376000606488015b600282106115db5750505050600095936002869485946115aa9460e487013784830360031901610124860152016113ea565b3361014483015203915afa918215610c96576115d994610c6d93610c735750610c66610c5985610416336106cc565b565b85809798995081818587989994979596973701930191018c979695949392611578565b6040519061160b826111c9565b6060604083828152600060208201520152565b9060026040805161162e816111c9565b6116778195835161164a8161164381856113ea565b03826111e4565b835260018101546001600160a01b031660208401528351948591611670918391016113ea565b03846111e4565b0152565b903590601e19813603018212156101c757018035906001600160401b0382116101c7576020019181360383136101c757565b90601f81116116bb57505050565b600091825260208220906020601f850160051c830194106116f7575b601f0160051c01915b8281106116ec57505050565b8181556001016116e0565b90925082906116d7565b35610500816103cc565b9092916001600160401b038111610b1b576117308161172a84546113b0565b846116ad565b6000601f821160011461176a578192939460009261175f575b50508160011b916000199060031b1c1916179055565b013590503880611749565b601f1982169461177f84600052602060002090565b91805b8781106117ba5750836001959697106117a0575b505050811b019055565b0135600019600384901b60f8161c19169055388080611796565b90926020600181928686013581550194019101611782565b6000805160206121128339815191528054600160401b811015610b1b576117fe91600182019055610828565b819291549060031b916001600160401b03809116831b921b1916179055565b634e487b7160e01b600052601160045260246000fd5b60001981146118425760010190565b61181d565b600080516020612112833981519152549060005b82811061186a57505050600090565b61187381610828565b90546001600160401b03908185169260031b1c161461189a5761189590611833565b61185b565b505050600190565b9190820391821161184257565b906118b982611205565b6118c660405191826111e4565b82815280926118d7601f1991611205565b019060005b8281106118e857505050565b6020906118f36115fe565b828285010152016118dc565b80518210156108745760209160051b010190565b1561191a57565b60405162461bcd60e51b815260206004820152601960248201527f537461727420696e646578206f7574206f6620626f756e6473000000000000006044820152606490fd5b9190820180921161184257565b60008051602061217283398151915280546001600160a01b031990811690915560008051602061213283398151915280549182166001600160a01b0393841690811790915591167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0600080a3565b600080516020612132833981519152546001600160a01b0316330361093657565b908060209392818452848401376000828201840152601f01601f1916010190565b91610500969495936001600160401b03611a44931684526080602085015260808401916119fb565b6001600160a01b0390941660408201528084036060909101526119fb565b6001600160401b03808216916000838152600160205260ff60408220541615611a8b5750505050565b805490600160401b821015610b1b577f56b7ddf97528e633ab570995fc0cf2e93f6eb557b29e5d715965018a34f4295e94611b1394611ad1846001604096018555610879565b819291549060031b9184831b921b19161790558152600160205220600160ff19825416179055604051918291829190916001600160401b036020820193169052565b0390a138808080611417565b15611b2657565b60405162461bcd60e51b815260206004820152602860248201527f6164647265737320696e2070726f6f66206973206e6f7420612073656e646572604482015267206164647265737360c01b6064820152608490fd5b6040519063b16a394f60e01b82526020600483015260096024830152686368616c6c656e676560b81b604483015260208260648160018060a01b038097165afa918215610c9657600092611beb575b50611bdd6115d99392611be3926118ff565b51611c20565b163314611b1f565b90916020823d8211611c18575b81611c05602093836111e4565b8101031261080f57505190611bdd611bcb565b3d9150611bf8565b6001600160a01b0381168103611d5357611d4c816105009260081c9060081b907eff000000ff000000ff000000ff000000ff000000ff000000ff000000ff00007fff000000ff000000ff000000ff000000ff000000ff000000ff000000ff0000007dff000000ff000000ff000000ff000000ff000000ff000000ff000000ff0084167cff000000ff000000ff000000ff000000ff000000ff000000ff000000ff84161760101b931691161760101c177bffffffff00000000ffffffff00000000ffffffff00000000ffffffff7fffffffff00000000ffffffff00000000ffffffff00000000ffffffff000000008260201b169160201c161777ffffffffffffffff0000000000000000ffffffffffffffff80198260401b169160401c16178060801b9060801c17611de4565b6014015190565b60405162461bcd60e51b815260206004820152605d60248201527f676976656e2075696e74323536206973206e6f74206120726570726573656e7460448201527f6174696f6e206f6620616e20616464726573732c203132206d6f73742073696760648201527f6e69666963616e742062797465732073686f756c64206265207a65726f000000608482015260a490fd5b9060405191611df2836111ae565b602083526020830152565b90805160011015610874577f681ea469fc50f02bc3788c40f25e78e5eaa619484685a28003af83fb0dc8dd6791611ecc610c596001600160401b03604080950151937f646b8bd6cf28645be11999db4a2cdbe4fdd61ea8f95a3877ffc1258f903be3c286600096338852600560205280828920558088526004602052611ea133838a209060018060a01b03166bffffffffffffffffffffffff60a01b825416179055565b8151903382526020820152a11680845260026020908152938590203360009081529452604090932090565b8151903382526020820152a1565b6001908160009081549082915b808310611f5c575b5050506001600160a01b0382168152600360205260409020805460ff191660ff841515161790557f14e9c7a267790ab46f2189d66cb068dbf65a27e7f844cb8aded907134d36467490611f56906040516001600160a01b0390911681529081906020820190565b0390a190565b909194506001600160401b03611f7186610879565b90549060031b1c168352600260205260ff611fa185604086209060018060a01b0316600052602052604060002090565b541694858015611fb5575082019190611ee7565b50611eef565b91908110156108745760051b8101359061013e19813603018212156101c7570190565b6000915b60028310611fef57505050565b600190604081818581943701920192019190611fe2565b92906040938481019160018060a01b031681528260209286848401525260608101600590606085831b84010196866000945b87861061204b5750505050505050505090565b909192939495969798605f19828203018552893561013e19843603018112156101c757830180359161207c8361030c565b6001600160401b03809316815289820135601e19833603018112156101c7578201908a823592019382116101c75781891b360384136101c7576120fe8b936120d260019686956101408088880152860191611386565b926120e18a82018b84016113aa565b6120f16080808301908401611fde565b61010080910191016113aa565b9b0195019601949397969592919061203856fe512d18c55869273fec77e70d8a8586e3fb133e90f1db24c6bcf4ff3506ef6a029016d09d72d40fdae2fd8ceac6b6234c7706214fd39c1cd1e609a0528c199300f0c57e16840df040f15088dc2f81fe391c3923bec73e23a9662efc9c229c6a00237e158222e3e6968b72b9db0d8043aacf074ad9f650f0d1606b4d82ee432c00a264697066735822122091778593798dd380a147893f6a86d35eebcc4dd6429991afb28e88e3d9d7cdb564736f6c63430008140033",
+  "deployedBytecode": "0x6080604052600436101561001257600080fd5b60003560e01c806315be5190146101925780631905e7b11461018d578063197bf195146101885780632a2d0c47146101835780632e01bb6f1461017e578063398cfb76146101745780635f9e60d71461017957806360fc1cb5146101745780636508e1b41461016f5780636d76b3631461016a578063715018a61461016557806371941da51461016057806379ba50971461015b5780638da5cb5b146101565780639f5223e014610151578063a9b9e3e11461014c578063ab7bcfb714610147578063b68967e214610142578063c4d66de81461013d578063c76d084514610138578063cb0e0d7d14610133578063e30c39781461012e578063f2fde38b146101295763f82ddf0a1461012457600080fd5b610f6a565b610edf565b610ea9565b610e6c565b610dcb565b610c9b565b610b78565b610b51565b610b20565b6109c2565b61094e565b6108f9565b6108b8565b61078d565b610730565b610705565b61043a565b610565565b6103dd565b610398565b610355565b6102ef565b6101cc565b9181601f840112156101c7578235916001600160401b0383116101c7576020808501948460051b0101116101c757565b600080fd5b346101c7576020806003193601126101c7576001600160401b03906004358281116101c7576101ff903690600401610197565b9160005b838110610261576040517fefbe0f7f95f99f3446b18c397ba10fec2af0a6ef272d84266ccb64303fd469ef908061023c87873384612006565b0390a161025d61024b33611eda565b60405190151581529081906020820190565b0390f35b61026c818585611fbb565b35906102778261030c565b610282818686611fbb565b8381013590601e19813603018212156101c757018035908782116101c7578401928160051b360384136101c7576001936102e99260406102c3868b8b611fbb565b019060806102d2878c8c611fbb565b01926101006102e2888d8d611fbb565b0194611507565b01610203565b346101c75760003660031901126101c75760206040516103e88152f35b6001600160401b038116036101c757565b6001600160401b03166000527f512d18c55869273fec77e70d8a8586e3fb133e90f1db24c6bcf4ff3506ef6a01602052604060002090565b346101c75760203660031901126101c7576001600160401b0360043561037a8161030c565b166000526001602052602060ff604060002054166040519015158152f35b346101c75760203660031901126101c7576004356000526004602052602060018060a01b0360406000205416604051908152f35b6001600160a01b038116036101c757565b346101c75760403660031901126101c757602060ff61042e600435610401816103cc565b610416602435916104118361030c565b6106cc565b906001600160401b0316600052602052604060002090565b54166040519015158152f35b346101c75760203660031901126101c757600435610457816103cc565b60018060a01b03166000526003602052602060ff604060002054166040519015158152f35b60005b83811061048f5750506000910152565b818101518382015260200161047f565b906020916104b88151809281855285808601910161047c565b601f01601f1916010190565b6105009160406104dd835160608452606084019061049f565b9260018060a01b036020820151166020840152015190604081840391015261049f565b90565b602080820190808352835180925260408301928160408460051b8301019501936000915b8483106105375750505050505090565b9091929394958480610555600193603f198682030187528a516104c4565b9801930193019194939290610527565b346101c75760403660031901126101c75760043560243560008051602061211283398151915254908015610687576103e8811161064a576105b1906105ab838510611913565b8361195f565b90808211610642575b506105cd6105c883836118a2565b6118af565b91805b8281106105e5576040518061025d8682610503565b8061063761061361060e6105fb61063d95610828565b90546001600160401b039160031b1c1690565b61031d565b61062661062086856118a2565b9161161e565b61063082896118ff565b52866118ff565b50611833565b6105d0565b9050386105ba565b60405162461bcd60e51b815260206004820152601560248201527413195b99dd1a081b1a5b5a5d08195e18d959591959605a1b6044820152606490fd5b60405162461bcd60e51b815260206004820152601f60248201527f4c656e6774682073686f756c642062652067726561746572207468616e2030006044820152606490fd5b6001600160a01b031660009081527f512d18c55869273fec77e70d8a8586e3fb133e90f1db24c6bcf4ff3506ef6a006020526040902090565b346101c75760003660031901126101c757602060008051602061211283398151915254604051908152f35b346101c75760403660031901126101c757602060ff61042e6004356107548161030c565b6001600160401b0360243591610769836103cc565b166000526002845260406000209060018060a01b0316600052602052604060002090565b346101c75760008060031936011261080f576107a76119da565b60008051602061217283398151915280546001600160a01b03199081169091556000805160206121328339815191528054918216905581906001600160a01b03167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e08280a380f35b80fd5b634e487b7160e01b600052603260045260246000fd5b9060008051602061211283398151915280548310156108745760005260188260021c7f1fe3fe50d7f73453bbdfdc1f93126676827407269733e888e486d0fbdf4a2c31019260031b1690565b610812565b90600054821015610874576000805260188260021c7f290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e563019260031b1690565b346101c75760203660031901126101c7576004356000548110156101c7576001600160401b036108e9602092610879565b9190546040519260031b1c168152f35b346101c75760003660031901126101c75760008051602061217283398151915254336001600160a01b0390911603610936576109343361196c565b005b60405163118cdaa760e01b8152336004820152602490fd5b346101c75760003660031901126101c757600080516020612132833981519152546040516001600160a01b039091168152602090f35b906003196040818401126101c75760043561099e8161030c565b92602435916001600160401b0383116101c757826060920301126101c75760040190565b346101c7576109d036610984565b906109d96119da565b6109e28161031d565b6109ec838061167b565b6001600160401b038195929511610b1b57610a1181610a0b85546113b0565b856116ad565b6000601f8211600114610aa15760029282610a919593610a889361093499600092610a96575b50508160011b916000199060031b1c19161783555b610a7e610a5b60208301611701565b6001850180546001600160a01b0319166001600160a01b03909216919091179055565b604081019061167b565b9290910161170b565b6117d2565b013590503880610a37565b601f19821690610ab685600052602060002090565b91815b818110610b03575083610a88936109349960029794610a91999760019510610ae9575b505050811b018355610a4c565b0135600019600384901b60f8161c19169055388080610adc565b9192602060018192868c013581550194019201610ab9565b611198565b346101c75760203660031901126101c7576020610b47600435610b42816103cc565b611eda565b6040519015158152f35b346101c75760203660031901126101c7576020610b47600435610b738161030c565b611847565b346101c7576101403660031901126101c757600435610b968161030c565b6024356001600160401b0381116101c757610bb5903690600401610197565b919091366084116101c75736610104116101c75736610144116101c757610c30926000610be18461031d565b60018101546001600160a01b0316610bfa81151561113b565b610c0e81610c0936888861121c565b611b7c565b60405180809881946378bbd34f60e11b83526002339101898960048601611480565b03915afa918215610c965761093494610c6d93610c73575b50610c66610c5985610416336106cc565b805460ff19166001179055565b369161121c565b90611dfd565b610c8f903d806000833e610c8781836111e4565b810190611285565b5038610c48565b6114fb565b346101c75760203660031901126101c757600435610cb8816103cc565b60008051602061215283398151915254906001600160401b0360ff8360401c1615921680159081610dc3575b6001149081610db9575b159081610db0575b50610d9e57600080516020612152833981519152805467ffffffffffffffff19166001179055610d2a9082610d795761196c565b610d3057005b600080516020612152833981519152805460ff60401b19169055604051600181527fc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d290602090a1005b600080516020612152833981519152805460ff60401b1916600160401b17905561196c565b60405163f92ee8a960e01b8152600490fd5b90501538610cf6565b303b159150610cee565b839150610ce4565b346101c75760203660031901126101c757600435610de88161030c565b610df06115fe565b50610dfa81611847565b15610e2757610e13610e0e61025d9261031d565b61161e565b6040519182916020835260208301906104c4565b60405162461bcd60e51b815260206004820152601860248201527f7265717565737420696420646f65736e277420657869737400000000000000006044820152606490fd5b346101c75760203660031901126101c757600435610e89816103cc565b60018060a01b031660005260056020526020604060002054604051908152f35b346101c75760003660031901126101c757600080516020612172833981519152546040516001600160a01b039091168152602090f35b346101c75760203660031901126101c757600435610efc816103cc565b610f046119da565b60008051602061217283398151915280546001600160a01b0319166001600160a01b03928316908117909155600080516020612132833981519152549091167f38d16b8cac22d99fc7c124b9cd0de2d3fa1faef420bfe791d8c362d765e22700600080a3005b346101c757610f7836610984565b90610f816119da565b610f896119da565b610f928161031d565b610f9c838061167b565b6001600160401b038195929511610b1b57610fbb81610a0b85546113b0565b6000601f82116001146110a25761107a92827febf5fc5d525575febff148871346e1458de02c705c900ba0bc9b5361d5eba08a959361108f9361093499600092611097575b50508160011b916000199060031b1c19161783555b611081611072602083019461104f61102c87611701565b6001830180546001600160a01b0319166001600160a01b03909216919091179055565b61106360026040860192610a88848861167b565b61106c896117d2565b8361167b565b959094611701565b918061167b565b916040519586958987611a1c565b0390a1611a62565b013590503880611000565b601f198216906110b785600052602060002090565b91815b81811061112357508361108f936109349961107a97947febf5fc5d525575febff148871346e1458de02c705c900ba0bc9b5361d5eba08a999760019510611109575b505050811b018355611015565b0135600019600384901b60f8161c191690553880806110fc565b9192602060018192868c0135815501940192016110ba565b1561114257565b60405162461bcd60e51b815260206004820152602860248201527f76616c696461746f72206973206e6f742073657420666f7220746869732072656044820152671c5d595cdd081a5960c21b6064820152608490fd5b634e487b7160e01b600052604160045260246000fd5b604081019081106001600160401b03821117610b1b57604052565b606081019081106001600160401b03821117610b1b57604052565b90601f801991011681019081106001600160401b03821117610b1b57604052565b6001600160401b038111610b1b5760051b60200190565b929161122782611205565b9161123560405193846111e4565b829481845260208094019160051b81019283116101c757905b82821061125b5750505050565b8135815290830190830161124e565b6001600160401b038111610b1b57601f01601f191660200190565b9060209081838203126101c75782516001600160401b03938482116101c757019080601f830112156101c75781516112bc81611205565b9460406112cb815197886111e4565b828752858088019360051b860101948486116101c757868101935b8685106112f857505050505050505090565b84518481116101c75782019083601f1983890301126101c75783519061131d826111ae565b898301518681116101c75783019188603f840112156101c7578a8301516113438161126a565b94611350885196876111e4565b8186528a8883870101116101c7578561137389938f9897858a809a01910161047c565b83520151838201528152019401936112e6565b81835290916001600160fb1b0383116101c75760209260051b809284830137010190565b60409137565b90600182811c921680156113e0575b60208310146113ca57565b634e487b7160e01b600052602260045260246000fd5b91607f16916113bf565b90600092918054916113fb836113b0565b91828252600193848116908160001461145d575060011461141d575b50505050565b90919394506000526020928360002092846000945b838610611449575050505001019038808080611417565b805485870183015294019385908201611432565b9294505050602093945060ff191683830152151560051b01019038808080611417565b92919061149891959495610160808652850191611386565b906040806044602086013760846000606086015b600282106114e657505050916114d6916101409361010460e08701378482036101208601526113ea565b6001600160a01b03909416910152565b838082818660019537019301910190916114ac565b6040513d6000823e3d90fd5b9394909192946115168561031d565b9560019660018060a01b0388820154169361153285151561113b565b61154185610c09368a8a61121c565b6040908151998a956378bbd34f60e11b875261016060048801528361156b61016489018c8c611386565b9660248901376000606488015b600282106115db5750505050600095936002869485946115aa9460e487013784830360031901610124860152016113ea565b3361014483015203915afa918215610c96576115d994610c6d93610c735750610c66610c5985610416336106cc565b565b85809798995081818587989994979596973701930191018c979695949392611578565b6040519061160b826111c9565b6060604083828152600060208201520152565b9060026040805161162e816111c9565b6116778195835161164a8161164381856113ea565b03826111e4565b835260018101546001600160a01b031660208401528351948591611670918391016113ea565b03846111e4565b0152565b903590601e19813603018212156101c757018035906001600160401b0382116101c7576020019181360383136101c757565b90601f81116116bb57505050565b600091825260208220906020601f850160051c830194106116f7575b601f0160051c01915b8281106116ec57505050565b8181556001016116e0565b90925082906116d7565b35610500816103cc565b9092916001600160401b038111610b1b576117308161172a84546113b0565b846116ad565b6000601f821160011461176a578192939460009261175f575b50508160011b916000199060031b1c1916179055565b013590503880611749565b601f1982169461177f84600052602060002090565b91805b8781106117ba5750836001959697106117a0575b505050811b019055565b0135600019600384901b60f8161c19169055388080611796565b90926020600181928686013581550194019101611782565b6000805160206121128339815191528054600160401b811015610b1b576117fe91600182019055610828565b819291549060031b916001600160401b03809116831b921b1916179055565b634e487b7160e01b600052601160045260246000fd5b60001981146118425760010190565b61181d565b600080516020612112833981519152549060005b82811061186a57505050600090565b61187381610828565b90546001600160401b03908185169260031b1c161461189a5761189590611833565b61185b565b505050600190565b9190820391821161184257565b906118b982611205565b6118c660405191826111e4565b82815280926118d7601f1991611205565b019060005b8281106118e857505050565b6020906118f36115fe565b828285010152016118dc565b80518210156108745760209160051b010190565b1561191a57565b60405162461bcd60e51b815260206004820152601960248201527f537461727420696e646578206f7574206f6620626f756e6473000000000000006044820152606490fd5b9190820180921161184257565b60008051602061217283398151915280546001600160a01b031990811690915560008051602061213283398151915280549182166001600160a01b0393841690811790915591167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0600080a3565b600080516020612132833981519152546001600160a01b0316330361093657565b908060209392818452848401376000828201840152601f01601f1916010190565b91610500969495936001600160401b03611a44931684526080602085015260808401916119fb565b6001600160a01b0390941660408201528084036060909101526119fb565b6001600160401b03808216916000838152600160205260ff60408220541615611a8b5750505050565b805490600160401b821015610b1b577f56b7ddf97528e633ab570995fc0cf2e93f6eb557b29e5d715965018a34f4295e94611b1394611ad1846001604096018555610879565b819291549060031b9184831b921b19161790558152600160205220600160ff19825416179055604051918291829190916001600160401b036020820193169052565b0390a138808080611417565b15611b2657565b60405162461bcd60e51b815260206004820152602860248201527f6164647265737320696e2070726f6f66206973206e6f7420612073656e646572604482015267206164647265737360c01b6064820152608490fd5b6040519063b16a394f60e01b82526020600483015260096024830152686368616c6c656e676560b81b604483015260208260648160018060a01b038097165afa918215610c9657600092611beb575b50611bdd6115d99392611be3926118ff565b51611c20565b163314611b1f565b90916020823d8211611c18575b81611c05602093836111e4565b8101031261080f57505190611bdd611bcb565b3d9150611bf8565b6001600160a01b0381168103611d5357611d4c816105009260081c9060081b907eff000000ff000000ff000000ff000000ff000000ff000000ff000000ff00007fff000000ff000000ff000000ff000000ff000000ff000000ff000000ff0000007dff000000ff000000ff000000ff000000ff000000ff000000ff000000ff0084167cff000000ff000000ff000000ff000000ff000000ff000000ff000000ff84161760101b931691161760101c177bffffffff00000000ffffffff00000000ffffffff00000000ffffffff7fffffffff00000000ffffffff00000000ffffffff00000000ffffffff000000008260201b169160201c161777ffffffffffffffff0000000000000000ffffffffffffffff80198260401b169160401c16178060801b9060801c17611de4565b6014015190565b60405162461bcd60e51b815260206004820152605d60248201527f676976656e2075696e74323536206973206e6f74206120726570726573656e7460448201527f6174696f6e206f6620616e20616464726573732c203132206d6f73742073696760648201527f6e69666963616e742062797465732073686f756c64206265207a65726f000000608482015260a490fd5b9060405191611df2836111ae565b602083526020830152565b90805160011015610874577f681ea469fc50f02bc3788c40f25e78e5eaa619484685a28003af83fb0dc8dd6791611ecc610c596001600160401b03604080950151937f646b8bd6cf28645be11999db4a2cdbe4fdd61ea8f95a3877ffc1258f903be3c286600096338852600560205280828920558088526004602052611ea133838a209060018060a01b03166bffffffffffffffffffffffff60a01b825416179055565b8151903382526020820152a11680845260026020908152938590203360009081529452604090932090565b8151903382526020820152a1565b6001908160009081549082915b808310611f5c575b5050506001600160a01b0382168152600360205260409020805460ff191660ff841515161790557f14e9c7a267790ab46f2189d66cb068dbf65a27e7f844cb8aded907134d36467490611f56906040516001600160a01b0390911681529081906020820190565b0390a190565b909194506001600160401b03611f7186610879565b90549060031b1c168352600260205260ff611fa185604086209060018060a01b0316600052602052604060002090565b541694858015611fb5575082019190611ee7565b50611eef565b91908110156108745760051b8101359061013e19813603018212156101c7570190565b6000915b60028310611fef57505050565b600190604081818581943701920192019190611fe2565b92906040938481019160018060a01b031681528260209286848401525260608101600590606085831b84010196866000945b87861061204b5750505050505050505090565b909192939495969798605f19828203018552893561013e19843603018112156101c757830180359161207c8361030c565b6001600160401b03809316815289820135601e19833603018112156101c7578201908a823592019382116101c75781891b360384136101c7576120fe8b936120d260019686956101408088880152860191611386565b926120e18a82018b84016113aa565b6120f16080808301908401611fde565b61010080910191016113aa565b9b0195019601949397969592919061203856fe512d18c55869273fec77e70d8a8586e3fb133e90f1db24c6bcf4ff3506ef6a029016d09d72d40fdae2fd8ceac6b6234c7706214fd39c1cd1e609a0528c199300f0c57e16840df040f15088dc2f81fe391c3923bec73e23a9662efc9c229c6a00237e158222e3e6968b72b9db0d8043aacf074ad9f650f0d1606b4d82ee432c00a264697066735822122091778593798dd380a147893f6a86d35eebcc4dd6429991afb28e88e3d9d7cdb564736f6c63430008140033",
+  "devdoc": {
+    "errors": {
+      "InvalidInitialization()": [
+        {
+          "details": "The contract is already initialized."
+        }
+      ],
+      "NotInitializing()": [
+        {
+          "details": "The contract is not initializing."
+        }
+      ],
+      "OwnableInvalidOwner(address)": [
+        {
+          "details": "The owner is not a valid owner account. (eg. `address(0)`)"
+        }
+      ],
+      "OwnableUnauthorizedAccount(address)": [
+        {
+          "details": "The caller account is not authorized to perform an operation."
+        }
+      ]
+    },
+    "events": {
+      "AddressIdConnection(address,uint256)": {
+        "details": "Event emitted when an address is associated with a Polygon ID"
+      },
+      "Initialized(uint64)": {
+        "details": "Triggered when the contract has been initialized or reinitialized."
+      },
+      "RequestRegistered(uint64)": {
+        "details": "Event emitted when a ZKPRequest is registered in the verifier"
+      },
+      "SubmitedAllZKPsForUser(address,(uint64,uint256[],uint256[2],uint256[2][2],uint256[2])[])": {
+        "details": "Event emitted when all ZKPs for a user are submitted"
+      },
+      "UserAllowedForRequest(address,uint64)": {
+        "details": "Event emitted when a user address is allowed for a request ID"
+      },
+      "UserAllowedForScenario(address)": {
+        "details": "Event emitted when an address is allowed for the scenario verifier"
+      },
+      "ZKPRequestSet(uint64,bytes,address,string)": {
+        "details": "Emitted when a ZKP request is set.",
+        "params": {
+          "data": "The data associated with the ZKP request.",
+          "metadata": "Metadata associated with the request.",
+          "requestId": "The ID of the ZKP request.",
+          "validator": "The circuit validator for the ZKP request."
+        }
+      }
+    },
+    "kind": "dev",
+    "methods": {
+      "acceptOwnership()": {
+        "details": "The new owner accepts the ownership transfer."
+      },
+      "allowUserForScenario((uint64,uint256[],uint256[2],uint256[2][2],uint256[2])[])": {
+        "params": {
+          "zkps": "Array of ZKPs to submit"
+        },
+        "returns": {
+          "_0": "Boolean indicating the success of the operation"
+        }
+      },
+      "finalizeAllowListScenario(address)": {
+        "details": "Once the user is allowed for all rules, call this function to finalize (this is more gas efficient than iterating over rules on every submission)",
+        "params": {
+          "user": "The address of the user to check"
+        },
+        "returns": {
+          "_0": "isUserWhitelisted True if the user is allowed for all rules"
+        }
+      },
+      "initialize(address)": {
+        "details": "Initialize proxied contract with owner",
+        "params": {
+          "newOwner": "The address of the thing owner"
+        }
+      },
+      "isAllowedForScenario(address)": {
+        "params": {
+          "user": "The address of the user to check"
+        },
+        "returns": {
+          "_0": "Boolean indicating if the user is allowed for the scenario"
+        }
+      },
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "pendingOwner()": {
+        "details": "Returns the address of the pending owner."
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
+      },
+      "setNexeraZKPRequest(uint64,(string,address,bytes))": {
+        "params": {
+          "request": "The ZKP request data.",
+          "requestId": "The ID of the request to be set."
+        }
+      },
+      "transferOwnership(address)": {
+        "details": "Starts the ownership transfer of the contract to a new account. Replaces the pending transfer if there is one. Can only be called by the current owner."
+      }
+    },
+    "title": "ScenarioVerifier",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "allowUserForScenario((uint64,uint256[],uint256[2],uint256[2][2],uint256[2])[])": {
+        "notice": "Submits all ZKPs and allowlists a user in one call"
+      },
+      "finalizeAllowListScenario(address)": {
+        "notice": "Finalizes the whitelisting of a user for all rules"
+      },
+      "isAllowedForScenario(address)": {
+        "notice": "Checks if a user is allowed for the scenario"
+      },
+      "setNexeraZKPRequest(uint64,(string,address,bytes))": {
+        "notice": "Sets a Nexera ZKP request and emits an event."
+      }
+    },
+    "notice": "This contract manages rules for a scenario using ZKP requests, including setting a request for a rule and allowing users who submit the right ZKPs",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 8363,
+        "contract": "contracts/zkpVerifiers/ScenarioVerifier.sol:ScenarioVerifier",
+        "label": "registeredRuleIDs",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_array(t_uint64)dyn_storage"
+      },
+      {
+        "astId": 8367,
+        "contract": "contracts/zkpVerifiers/ScenarioVerifier.sol:ScenarioVerifier",
+        "label": "isRuleIdRegistered",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_uint64,t_bool)"
+      },
+      {
+        "astId": 8373,
+        "contract": "contracts/zkpVerifiers/ScenarioVerifier.sol:ScenarioVerifier",
+        "label": "queryRequestWhitelist",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_mapping(t_uint64,t_mapping(t_address,t_bool))"
+      },
+      {
+        "astId": 8377,
+        "contract": "contracts/zkpVerifiers/ScenarioVerifier.sol:ScenarioVerifier",
+        "label": "scenarioAllowList",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_mapping(t_address,t_bool)"
+      },
+      {
+        "astId": 8381,
+        "contract": "contracts/zkpVerifiers/ScenarioVerifier.sol:ScenarioVerifier",
+        "label": "idToAddress",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_mapping(t_uint256,t_address)"
+      },
+      {
+        "astId": 8385,
+        "contract": "contracts/zkpVerifiers/ScenarioVerifier.sol:ScenarioVerifier",
+        "label": "addressToId",
+        "offset": 0,
+        "slot": "5",
+        "type": "t_mapping(t_address,t_uint256)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint64)dyn_storage": {
+        "base": "t_uint64",
+        "encoding": "dynamic_array",
+        "label": "uint64[]",
+        "numberOfBytes": "32"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_mapping(t_uint256,t_address)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => address)",
+        "numberOfBytes": "32",
+        "value": "t_address"
+      },
+      "t_mapping(t_uint64,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_uint64",
+        "label": "mapping(uint64 => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_uint64,t_mapping(t_address,t_bool))": {
+        "encoding": "mapping",
+        "key": "t_uint64",
+        "label": "mapping(uint64 => mapping(address => bool))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_bool)"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint64": {
+        "encoding": "inplace",
+        "label": "uint64",
+        "numberOfBytes": "8"
+      }
+    }
+  }
+}

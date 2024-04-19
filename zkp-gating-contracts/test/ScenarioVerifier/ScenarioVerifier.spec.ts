@@ -10,7 +10,7 @@ import { prepareInputs } from "../utils/prepareInputs";
 import { setupThreeAccounts } from "../utils/fundAccounts";
 export const SIMPLE_TSF_COST = 21000n;
 const testDID =
-  "did:polygonid:polygon:mumbai:2qPXXXnx37MVkfP44amJWcvcxGpLPSh7fUW6cyTDPt";
+  "did:polygonid:polygon:amoy:2qPXXXnx37MVkfP44amJWcvcxGpLPSh7fUW6cyTDPt";
 
 describe(`ScenarioVerifier: ProofOfResidence and IDInformation`, function () {
   let scenarioVerifier: ScenarioVerifier;
