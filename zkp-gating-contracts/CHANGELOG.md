@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/NexeraProtocol/NexeraIDZkpGatingContracts/compare/@nexeraprotocol/nexera-id-zkp-gating-contracts@1.0.4...@nexeraprotocol/nexera-id-zkp-gating-contracts@1.0.5) (2024-04-19)
+
+**Note:** Version bump only for package @nexeraprotocol/nexera-id-zkp-gating-contracts
+
+
+
+
+
 ## [1.0.4](https://github.com/NexeraProtocol/NexeraIDZkpGatingContracts/compare/@nexeraprotocol/nexera-id-zkp-gating-contracts@1.0.3...@nexeraprotocol/nexera-id-zkp-gating-contracts@1.0.4) (2024-04-03)
 
 **Note:** Version bump only for package @nexeraprotocol/nexera-id-zkp-gating-contracts
