@@ -16,12 +16,12 @@ export const moveFactoryAddressToSdk = (
 
 export const moveAllFactoryAddressesToSdk = () => {
   // Amoy
-  // moveFactoryAddressToSdk("VerifierEntrypointFactory", "amoy_dev");
-  // moveFactoryAddressToSdk("VerifierEntrypointFactory", "amoy_staging");
-  // moveFactoryAddressToSdk("VerifierEntrypointFactory", "amoy_prod");
-  // moveFactoryAddressToSdk("ScenarioVerifierFactory", "amoy_dev");
-  // moveFactoryAddressToSdk("ScenarioVerifierFactory", "amoy_staging");
-  // moveFactoryAddressToSdk("ScenarioVerifierFactory", "amoy_prod");
+  moveFactoryAddressToSdk("VerifierEntrypointFactory", "amoy_dev");
+  moveFactoryAddressToSdk("VerifierEntrypointFactory", "amoy_staging");
+  moveFactoryAddressToSdk("VerifierEntrypointFactory", "amoy_prod");
+  moveFactoryAddressToSdk("ScenarioVerifierFactory", "amoy_dev");
+  moveFactoryAddressToSdk("ScenarioVerifierFactory", "amoy_staging");
+  moveFactoryAddressToSdk("ScenarioVerifierFactory", "amoy_prod");
   // Sepolia
   moveFactoryAddressToSdk("VerifierEntrypointFactory", "sepolia_dev");
   moveFactoryAddressToSdk("VerifierEntrypointFactory", "sepolia_staging");

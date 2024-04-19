@@ -5,5 +5,6 @@
   "CredentialAtomicQuerySigValidator0.1.0": 1711637799,
   "NexeraVerifierEntrypoint0.1.0": 1711637812,
   "VerifierEntrypointFactory0.1.0": 1711637825,
-  "ProxyAavePool0.1.0": 1711637833
+  "ProxyAavePool0.1.0": 1711637833,
+  "CredentialAtomicQuerySigV2Validator0.1.0": 1713517477
 }
