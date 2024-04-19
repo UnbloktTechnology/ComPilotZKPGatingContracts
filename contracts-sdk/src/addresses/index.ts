@@ -1,21 +1,21 @@
 // Deployed addresses
 
-// Mumbai
+// Amoy
 
 // ScenarioVerifierFactory
-export * from "./ScenarioVerifierFactoryAddress_mumbai_dev";
-export * from "./ScenarioVerifierFactoryAddress_mumbai_staging";
-export * from "./ScenarioVerifierFactoryAddress_mumbai_prod";
+// export * from "./ScenarioVerifierFactoryAddress_amoy_dev";
+// export * from "./ScenarioVerifierFactoryAddress_amoy_staging";
+// export * from "./ScenarioVerifierFactoryAddress_amoy_prod";
 
-// VerifierEntrypointFactory
-export * from "./VerifierEntrypointFactoryAddress_mumbai_dev";
-export * from "./VerifierEntrypointFactoryAddress_mumbai_staging";
-export * from "./VerifierEntrypointFactoryAddress_mumbai_prod";
+// // VerifierEntrypointFactory
+// export * from "./VerifierEntrypointFactoryAddress_amoy_dev";
+// export * from "./VerifierEntrypointFactoryAddress_amoy_staging";
+// export * from "./VerifierEntrypointFactoryAddress_amoy_prod";
 
-// NexeraIDSignerManager
-export * from "./NexeraIDSignerManagerAddress_mumbai_dev";
-export * from "./NexeraIDSignerManagerAddress_mumbai_staging";
-export * from "./NexeraIDSignerManagerAddress_mumbai_prod";
+// // NexeraIDSignerManager
+// export * from "./NexeraIDSignerManagerAddress_amoy_dev";
+// export * from "./NexeraIDSignerManagerAddress_amoy_staging";
+// export * from "./NexeraIDSignerManagerAddress_amoy_prod";
 
 // Sepolia
 

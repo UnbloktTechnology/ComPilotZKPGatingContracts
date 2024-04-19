@@ -15,13 +15,13 @@ export const moveFactoryAddressToSdk = (
 };
 
 export const moveAllFactoryAddressesToSdk = () => {
-  // Mumbai
-  moveFactoryAddressToSdk("VerifierEntrypointFactory", "mumbai_dev");
-  moveFactoryAddressToSdk("VerifierEntrypointFactory", "mumbai_staging");
-  moveFactoryAddressToSdk("VerifierEntrypointFactory", "mumbai_prod");
-  moveFactoryAddressToSdk("ScenarioVerifierFactory", "mumbai_dev");
-  moveFactoryAddressToSdk("ScenarioVerifierFactory", "mumbai_staging");
-  moveFactoryAddressToSdk("ScenarioVerifierFactory", "mumbai_prod");
+  // Amoy
+  // moveFactoryAddressToSdk("VerifierEntrypointFactory", "amoy_dev");
+  // moveFactoryAddressToSdk("VerifierEntrypointFactory", "amoy_staging");
+  // moveFactoryAddressToSdk("VerifierEntrypointFactory", "amoy_prod");
+  // moveFactoryAddressToSdk("ScenarioVerifierFactory", "amoy_dev");
+  // moveFactoryAddressToSdk("ScenarioVerifierFactory", "amoy_staging");
+  // moveFactoryAddressToSdk("ScenarioVerifierFactory", "amoy_prod");
   // Sepolia
   moveFactoryAddressToSdk("VerifierEntrypointFactory", "sepolia_dev");
   moveFactoryAddressToSdk("VerifierEntrypointFactory", "sepolia_staging");
