@@ -35,7 +35,7 @@
     "lerna": "^8.1.2"
   },
   "publishConfig": {
-    "@NexeraProtocol:registry": "https://npm.pkg.github.com"
+    "@UnbloktTechnology:registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "lint": "pnpm -r lint",
