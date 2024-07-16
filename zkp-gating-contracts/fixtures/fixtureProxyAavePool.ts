@@ -7,7 +7,7 @@ import {
 } from "../typechain";
 import { deployScenarioVerifier } from "../lib/deploy/deployScenarioVerifier";
 import { deployVerifierEntrypoint } from "../lib/deploy/deployVerifierEntrypoint";
-import { Address } from "@nexeraprotocol/nexera-id-zkp-gating-contracts-sdk/lib";
+import { Address } from "@nexeraid/nexera-id-zkp-gating-contracts-sdk/lib";
 
 export async function fixtureProxyAavePool() {
   const contractName = "ProxyAavePool";

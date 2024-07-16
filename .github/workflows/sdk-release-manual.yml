@@ -83,12 +83,12 @@ jobs:
         run: |
           echo ${{ steps.tag_release.outputs.release_tag }}
 
-          version=$(pnpm pkg get version -w "@nexeraprotocol/nexera-id-zkp-gating-contracts" | head -n1 | tr -d '"')
-          pnpm pkg set version="$version-${{ steps.branch_name.outputs.branch_name }}" -w "@nexeraprotocol/nexera-id-zkp-gating-contracts"
+          version=$(pnpm pkg get version -w "@nexeraid/nexera-id-zkp-gating-contracts" | head -n1 | tr -d '"')
+          pnpm pkg set version="$version-${{ steps.branch_name.outputs.branch_name }}" -w "@nexeraid/nexera-id-zkp-gating-contracts"
           echo $version
 
-          version=$(pnpm pkg get version -w "@nexeraprotocol/nexera-id-zkp-gating-contracts-sdk" | head -n1 | tr -d '"')
-          pnpm pkg set version="$version-${{ steps.branch_name.outputs.branch_name }}" -w "@nexeraprotocol/nexera-id-zkp-gating-contracts-sdk"
+          version=$(pnpm pkg get version -w "@nexeraid/nexera-id-zkp-gating-contracts-sdk" | head -n1 | tr -d '"')
+          pnpm pkg set version="$version-${{ steps.branch_name.outputs.branch_name }}" -w "@nexeraid/nexera-id-zkp-gating-contracts-sdk"
           echo $version
 
       - name: Build and publish contracts to npm

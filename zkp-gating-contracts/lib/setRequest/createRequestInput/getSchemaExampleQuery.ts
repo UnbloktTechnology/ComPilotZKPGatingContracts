@@ -1,4 +1,4 @@
-import { CredentialType } from "@nexeraprotocol/nexera-id-zkp-gating-contracts-sdk/lib";
+import { CredentialType } from "@nexeraid/nexera-id-zkp-gating-contracts-sdk/lib";
 import { calculateQueryHash } from "./calculateQueryHash";
 import { generateRequestData } from "./generateRequestData";
 import { packValidatorParams } from "./packValidatorParams";

@@ -1,4 +1,4 @@
-import { Address } from "@nexeraprotocol/nexera-id-zkp-gating-contracts-sdk/lib";
+import { Address } from "@nexeraid/nexera-id-zkp-gating-contracts-sdk/lib";
 import { ethers, network } from "hardhat";
 
 // async function fundTestAccount(testAccountAddress:Address, amountInEther) {
