@@ -1,4 +1,4 @@
 {
-  "main": "dist/nexeraprotocol-nexera-id-zkp-gating-contracts-sdk-typechain.cjs.js",
-  "module": "dist/nexeraprotocol-nexera-id-zkp-gating-contracts-sdk-typechain.esm.js"
+  "main": "dist/nexeraid-nexera-id-zkp-gating-contracts-sdk-typechain.cjs.js",
+  "module": "dist/nexeraid-nexera-id-zkp-gating-contracts-sdk-typechain.esm.js"
 }
