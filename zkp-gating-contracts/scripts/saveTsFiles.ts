@@ -1,5 +1,5 @@
 import fs from "fs";
-import { Address } from "@nexeraid/nexera-id-zkp-gating-contracts-sdk/lib";
+import { Address } from "@nexeraid/zkp-gating-contracts-sdk/lib";
 
 export const saveTsFile = (
   constName: string,

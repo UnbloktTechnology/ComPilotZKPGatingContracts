@@ -1,7 +1,7 @@
 import {
   CredentialType,
   Environment,
-} from "@nexeraid/nexera-id-zkp-gating-contracts-sdk/lib";
+} from "@nexeraid/zkp-gating-contracts-sdk/lib";
 
 const json_schema = {
   ProofOfResidence: {

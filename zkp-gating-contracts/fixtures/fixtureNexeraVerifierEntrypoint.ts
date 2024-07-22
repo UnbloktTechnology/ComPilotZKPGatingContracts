@@ -3,7 +3,7 @@ import { deployments } from "hardhat";
 import { NexeraVerifierEntrypoint, ScenarioVerifier } from "../typechain";
 import { deployScenarioVerifier } from "../lib/deploy/deployScenarioVerifier";
 import { deployVerifierEntrypoint } from "../lib/deploy/deployVerifierEntrypoint";
-import { Address } from "@nexeraid/nexera-id-zkp-gating-contracts-sdk/lib";
+import { Address } from "@nexeraid/zkp-gating-contracts-sdk/lib";
 
 export async function fixtureNexeraVerifierEntrypoint() {
   const contractName = "VerifierEntrypointFactory";

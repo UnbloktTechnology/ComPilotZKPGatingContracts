@@ -1,4 +1,4 @@
 {
-  "main": "dist/nexeraid-nexera-id-zkp-gating-contracts-sdk-addresses.cjs.js",
-  "module": "dist/nexeraid-nexera-id-zkp-gating-contracts-sdk-addresses.esm.js"
+  "main": "dist/nexeraid-zkp-gating-contracts-sdk-addresses.cjs.js",
+  "module": "dist/nexeraid-zkp-gating-contracts-sdk-addresses.esm.js"
 }

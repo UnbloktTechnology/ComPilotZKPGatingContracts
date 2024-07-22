@@ -1,7 +1,7 @@
 import { ethers } from "hardhat";
 
 import { getSchemaExampleQuery } from "./createRequestInput/getSchemaExampleQuery";
-import { CredentialType } from "@nexeraid/nexera-id-zkp-gating-contracts-sdk/lib";
+import { CredentialType } from "@nexeraid/zkp-gating-contracts-sdk/lib";
 
 export async function setRequestForScenario(
   requestId: number,

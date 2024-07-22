@@ -2,7 +2,7 @@ import { expect } from "chai";
 
 import { get2ZKPsForUserWhitelist } from "../utils/get2ZKPsForUserWhitelist";
 import { ScenarioVerifier } from "../../typechain";
-import { Address } from "@nexeraid/nexera-id-zkp-gating-contracts-sdk/lib";
+import { Address } from "@nexeraid/zkp-gating-contracts-sdk/lib";
 import { fixtureScenarioVerifier } from "../../fixtures/fixtureScenarioVerifier";
 import { getSchemaExampleQuery } from "../../lib/setRequest/createRequestInput/getSchemaExampleQuery";
 import { setupScenario2Rules } from "../utils/setupScenario2Rules";

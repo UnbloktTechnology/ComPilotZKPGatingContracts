@@ -4,7 +4,7 @@ import {
   Merklizer,
   Path,
 } from "@iden3/js-jsonld-merklization";
-import { CredentialType } from "@nexeraid/nexera-id-zkp-gating-contracts-sdk/lib";
+import { CredentialType } from "@nexeraid/zkp-gating-contracts-sdk/lib";
 import { getCredentialSchemaLocation } from "./getCredentialSchemaLocation";
 
 // // you can run https://go.dev/play/p/rnrRbxXTRY6 to get schema hash and claimPathKey using YOUR schema

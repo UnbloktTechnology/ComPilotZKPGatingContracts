@@ -84,12 +84,12 @@ jobs:
           echo ${{ steps.tag_release.outputs.tag_release }}
           echo ${{ steps.branch_name.outputs.branch_name }}
 
-          version=$(pnpm pkg get version -w "@nexeraid/nexera-id-zkp-gating-contracts" | jq -r '.["@nexeraid/nexera-id-zkp-gating-contracts"]')
-          pnpm pkg set version="$version-${{ steps.branch_name.outputs.branch_name }}" -w "@nexeraid/nexera-id-zkp-gating-contracts"
+          version=$(pnpm pkg get version -w "@nexeraid/zkp-gating-contracts" | jq -r '.["@nexeraid/zkp-gating-contracts"]')
+          pnpm pkg set version="$version-${{ steps.branch_name.outputs.branch_name }}" -w "@nexeraid/zkp-gating-contracts"
           echo $version
 
-          version=$(pnpm pkg get version -w "@nexeraid/nexera-id-zkp-gating-contracts-sdk" | jq -r '.["@nexeraid/nexera-id-zkp-gating-contracts-sdk"]')
-          pnpm pkg set version="$version-${{ steps.branch_name.outputs.branch_name }}" -w "@nexeraid/nexera-id-zkp-gating-contracts-sdk"
+          version=$(pnpm pkg get version -w "@nexeraid/zkp-gating-contracts-sdk" | jq -r '.["@nexeraid/zkp-gating-contracts-sdk"]')
+          pnpm pkg set version="$version-${{ steps.branch_name.outputs.branch_name }}" -w "@nexeraid/zkp-gating-contracts-sdk"
           echo $version
 
       - name: Build and publish contracts to npm
@@ -102,7 +102,7 @@ jobs:
           SALT: ${{ secrets.SALT }}
         run: |
           pnpm run build:contracts
-          pnpm --filter @nexeraid/nexera-id-zkp-gating-contracts-sdk build
+          pnpm --filter @nexeraid/zkp-gating-contracts-sdk build
 
       - name: Build and publish contracts infos to npm
         env:
@@ -115,6 +115,6 @@ jobs:
         run: |
           echo "//registry.npmjs.org/:_authToken=$NPMJS_COM_TOKEN" > .npmrc
 
-          pnpm --filter "@nexeraid/nexera-id-zkp-gating-contracts" publish --access=public --no-git-checks --registry https://registry.npmjs.org/ --tag ${{ steps.tag_release.outputs.release_tag }}
+          pnpm --filter "@nexeraid/zkp-gating-contracts" publish --access=public --no-git-checks --registry https://registry.npmjs.org/ --tag ${{ steps.tag_release.outputs.release_tag }}
 
-          pnpm --filter "@nexeraid/nexera-id-zkp-gating-contracts-sdk" publish --access=public --no-git-checks --registry https://registry.npmjs.org/ --tag ${{ steps.tag_release.outputs.release_tag }}
+          pnpm --filter "@nexeraid/zkp-gating-contracts-sdk" publish --access=public --no-git-checks --registry https://registry.npmjs.org/ --tag ${{ steps.tag_release.outputs.release_tag }}
