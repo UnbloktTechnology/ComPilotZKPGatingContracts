@@ -65,6 +65,13 @@ jobs:
         run: |
           lerna version --yes --changelog-preset=angular
 
+      - name: Set release tag
+        id: tag_release
+        run: |
+          release_tag="latest"
+
+          echo "release_tag=$release_tag" >> $GITHUB_OUTPUT
+
       - name: Build
         env:
           AMOY_PROVIDER_URL: ${{ secrets.AMOY_PROVIDER_URL }}
@@ -88,7 +95,7 @@ jobs:
         run: |
           echo "//registry.npmjs.org/:_authToken=$NPMJS_COM_TOKEN" > .npmrc
 
-          pnpm --filter "@nexeraid/nexera-id-zkp-gating-contracts" publish --access=public --no-git-checks --registry https://registry.npmjs.org/
+          pnpm --filter "@nexeraid/nexera-id-zkp-gating-contracts" publish --access=public --no-git-checks --registry https://registry.npmjs.org/ --tag ${{ steps.tag_release.outputs.release_tag }}
 
-          pnpm --filter "@nexeraid/nexera-id-zkp-gating-contracts-sdk" publish --access=public --no-git-checks --registry https://registry.npmjs.org/
+          pnpm --filter "@nexeraid/nexera-id-zkp-gating-contracts-sdk" publish --access=public --no-git-checks --registry https://registry.npmjs.org/ --tag ${{ steps.tag_release.outputs.release_tag }}
 
