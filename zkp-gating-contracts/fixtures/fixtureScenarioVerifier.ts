@@ -1,7 +1,7 @@
 import { deployments } from "hardhat";
 
 import { deployScenarioVerifier } from "../lib/deploy/deployScenarioVerifier";
-import { Address } from "@nexeraprotocol/nexera-id-zkp-gating-contracts-sdk/lib";
+import { Address } from "@nexeraid/zkp-gating-contracts-sdk/lib";
 
 export async function fixtureScenarioVerifier() {
   const contractName = "ScenarioVerifierFactory";

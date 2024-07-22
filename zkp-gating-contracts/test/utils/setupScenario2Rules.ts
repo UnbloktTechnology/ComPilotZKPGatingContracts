@@ -1,4 +1,4 @@
-import { Address } from "@nexeraprotocol/nexera-id-zkp-gating-contracts-sdk/lib";
+import { Address } from "@nexeraid/zkp-gating-contracts-sdk/lib";
 import { setRequestForScenario } from "../../lib/setRequest/setRequestScenario";
 import { ScenarioVerifier } from "../../typechain";
 

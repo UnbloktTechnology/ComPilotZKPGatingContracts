@@ -1,5 +1,5 @@
 {
-  "name": "@nexeraprotocol/nexera-id-zkp-gating-contracts",
+  "name": "@nexeraid/zkp-gating-contracts",
   "version": "1.0.5",
   "description": "Nexera ID ZKP Based Gating Contracts",
   "author": "Nexera ID",
@@ -8,7 +8,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/NexeraProtocol/NexeraIDZkpGatingContracts.git",
+    "url": "https://github.com/UnbloktTechnology/NexeraIDZkpGatingContracts.git",
     "directory": "zkp-gating-contracts"
   },
   "scripts": {
@@ -50,7 +50,7 @@
     "@ethersproject/abi": "^5.7.0",
     "@ethersproject/providers": "^5.7.2",
     "@iden3/js-jsonld-merklization": "^1.1.2",
-    "@nexeraprotocol/nexera-id-zkp-gating-contracts-sdk": "workspace:*",
+    "@nexeraid/zkp-gating-contracts-sdk": "workspace:*",
     "@nomiclabs/hardhat-ethers": "^2.2.3",
     "@nomiclabs/hardhat-etherscan": "^3.1.8",
     "@nomiclabs/hardhat-waffle": "^2.0.6",

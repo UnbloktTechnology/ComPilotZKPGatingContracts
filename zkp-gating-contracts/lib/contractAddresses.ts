@@ -1,4 +1,4 @@
-import { NEXERA_CHAINS } from "@nexeraprotocol/nexera-id-zkp-gating-contracts-sdk/lib";
+import { NEXERA_CHAINS } from "@nexeraid/zkp-gating-contracts-sdk/lib";
 
 export const ONCHAIN_VERIFICATION_CONTRACTS = {
   [NEXERA_CHAINS.AMOY]: {
