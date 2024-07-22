@@ -1,5 +1,5 @@
 {
-  "version": "1.2.8",
+  "version": "1.2.9",
   "name": "@nexeraid/zkp-gating-contracts-sdk",
   "main": "dist/nexeraid-zkp-gating-contracts-sdk.cjs.js",
   "module": "dist/nexeraid-zkp-gating-contracts-sdk.esm.js",
