@@ -104,26 +104,26 @@ const json_schema = {
     branch:
       "https://quicknode.quicknode-ipfs.com/ipfs/QmUV9bVQ433m5ejjgqodQ4kfWqMMzFCwJqcqRhzSfENEMX",
   },
-  // ID3: {
-  //   prod: "https://quicknode.quicknode-ipfs.com/ipfs/QmSiv7jMN1mcatdnsG4kJkLPVYkT92tV3oKMWqE7dYqzwX",
-  //   stage:
-  //     "https://quicknode.quicknode-ipfs.com/ipfs/QmSiv7jMN1mcatdnsG4kJkLPVYkT92tV3oKMWqE7dYqzwX",
-  //   dev: "https://quicknode.quicknode-ipfs.com/ipfs/QmSiv7jMN1mcatdnsG4kJkLPVYkT92tV3oKMWqE7dYqzwX",
-  //   local:
-  //     "https://quicknode.quicknode-ipfs.com/ipfs/QmSiv7jMN1mcatdnsG4kJkLPVYkT92tV3oKMWqE7dYqzwX",
-  //   branch:
-  //     "https://quicknode.quicknode-ipfs.com/ipfs/QmSiv7jMN1mcatdnsG4kJkLPVYkT92tV3oKMWqE7dYqzwX",
-  // },
-  // IDScan: {
-  //   prod: "https://quicknode.quicknode-ipfs.com/ipfs/QmZHArC9SYXEvNLei7qJCQr5qapSYYhmAMmsh5r35AtcoY",
-  //   stage:
-  //     "https://quicknode.quicknode-ipfs.com/ipfs/QmZHArC9SYXEvNLei7qJCQr5qapSYYhmAMmsh5r35AtcoY",
-  //   dev: "https://quicknode.quicknode-ipfs.com/ipfs/QmZHArC9SYXEvNLei7qJCQr5qapSYYhmAMmsh5r35AtcoY",
-  //   local:
-  //     "https://quicknode.quicknode-ipfs.com/ipfs/QmZHArC9SYXEvNLei7qJCQr5qapSYYhmAMmsh5r35AtcoY",
-  //   branch:
-  //     "https://quicknode.quicknode-ipfs.com/ipfs/QmZHArC9SYXEvNLei7qJCQr5qapSYYhmAMmsh5r35AtcoY",
-  // },
+  ID3: {
+    prod: "https://quicknode.quicknode-ipfs.com/ipfs/QmSiv7jMN1mcatdnsG4kJkLPVYkT92tV3oKMWqE7dYqzwX",
+    stage:
+      "https://quicknode.quicknode-ipfs.com/ipfs/QmSiv7jMN1mcatdnsG4kJkLPVYkT92tV3oKMWqE7dYqzwX",
+    dev: "https://quicknode.quicknode-ipfs.com/ipfs/QmSiv7jMN1mcatdnsG4kJkLPVYkT92tV3oKMWqE7dYqzwX",
+    local:
+      "https://quicknode.quicknode-ipfs.com/ipfs/QmSiv7jMN1mcatdnsG4kJkLPVYkT92tV3oKMWqE7dYqzwX",
+    branch:
+      "https://quicknode.quicknode-ipfs.com/ipfs/QmSiv7jMN1mcatdnsG4kJkLPVYkT92tV3oKMWqE7dYqzwX",
+  },
+  IDScan: {
+    prod: "https://quicknode.quicknode-ipfs.com/ipfs/QmZHArC9SYXEvNLei7qJCQr5qapSYYhmAMmsh5r35AtcoY",
+    stage:
+      "https://quicknode.quicknode-ipfs.com/ipfs/QmZHArC9SYXEvNLei7qJCQr5qapSYYhmAMmsh5r35AtcoY",
+    dev: "https://quicknode.quicknode-ipfs.com/ipfs/QmZHArC9SYXEvNLei7qJCQr5qapSYYhmAMmsh5r35AtcoY",
+    local:
+      "https://quicknode.quicknode-ipfs.com/ipfs/QmZHArC9SYXEvNLei7qJCQr5qapSYYhmAMmsh5r35AtcoY",
+    branch:
+      "https://quicknode.quicknode-ipfs.com/ipfs/QmZHArC9SYXEvNLei7qJCQr5qapSYYhmAMmsh5r35AtcoY",
+  },
   IDScanSelfie: {
     prod: "https://quicknode.quicknode-ipfs.com/ipfs/QmQQX5t9ZHqGMY5qKrxApMjejw4bugGVae3HddrcShZaGe",
     stage:
@@ -144,26 +144,26 @@ const json_schema = {
     branch:
       "https://quicknode.quicknode-ipfs.com/ipfs/QmUej2eizQoJQXzo4fmoN6Eu3SMAbUjVXG1rE3GotRDfST",
   },
-  // ID3_LD: {
-  //   prod: "https://quicknode.quicknode-ipfs.com/ipfs/QmSFao9JrbMKLvjuuWdUqhhkrPCUcVSaoMiPWKMUMsAx9a",
-  //   stage:
-  //     "https://quicknode.quicknode-ipfs.com/ipfs/QmSFao9JrbMKLvjuuWdUqhhkrPCUcVSaoMiPWKMUMsAx9a",
-  //   dev: "https://quicknode.quicknode-ipfs.com/ipfs/QmSFao9JrbMKLvjuuWdUqhhkrPCUcVSaoMiPWKMUMsAx9a",
-  //   local:
-  //     "https://quicknode.quicknode-ipfs.com/ipfs/QmSFao9JrbMKLvjuuWdUqhhkrPCUcVSaoMiPWKMUMsAx9a",
-  //   branch:
-  //     "https://quicknode.quicknode-ipfs.com/ipfs/QmSFao9JrbMKLvjuuWdUqhhkrPCUcVSaoMiPWKMUMsAx9a",
-  // },
-  // IDScan_LD: {
-  //   prod: "https://quicknode.quicknode-ipfs.com/ipfs/QmaoyFJjwbkMSTwWurK4tYFxWd3CDnMLu2KustmWL8Ruks",
-  //   stage:
-  //     "https://quicknode.quicknode-ipfs.com/ipfs/QmaoyFJjwbkMSTwWurK4tYFxWd3CDnMLu2KustmWL8Ruks",
-  //   dev: "https://quicknode.quicknode-ipfs.com/ipfs/QmaoyFJjwbkMSTwWurK4tYFxWd3CDnMLu2KustmWL8Ruks",
-  //   local:
-  //     "https://quicknode.quicknode-ipfs.com/ipfs/QmaoyFJjwbkMSTwWurK4tYFxWd3CDnMLu2KustmWL8Ruks",
-  //   branch:
-  //     "https://quicknode.quicknode-ipfs.com/ipfs/QmaoyFJjwbkMSTwWurK4tYFxWd3CDnMLu2KustmWL8Ruks",
-  // },
+  ID3_LD: {
+    prod: "https://quicknode.quicknode-ipfs.com/ipfs/QmSFao9JrbMKLvjuuWdUqhhkrPCUcVSaoMiPWKMUMsAx9a",
+    stage:
+      "https://quicknode.quicknode-ipfs.com/ipfs/QmSFao9JrbMKLvjuuWdUqhhkrPCUcVSaoMiPWKMUMsAx9a",
+    dev: "https://quicknode.quicknode-ipfs.com/ipfs/QmSFao9JrbMKLvjuuWdUqhhkrPCUcVSaoMiPWKMUMsAx9a",
+    local:
+      "https://quicknode.quicknode-ipfs.com/ipfs/QmSFao9JrbMKLvjuuWdUqhhkrPCUcVSaoMiPWKMUMsAx9a",
+    branch:
+      "https://quicknode.quicknode-ipfs.com/ipfs/QmSFao9JrbMKLvjuuWdUqhhkrPCUcVSaoMiPWKMUMsAx9a",
+  },
+  IDScan_LD: {
+    prod: "https://quicknode.quicknode-ipfs.com/ipfs/QmaoyFJjwbkMSTwWurK4tYFxWd3CDnMLu2KustmWL8Ruks",
+    stage:
+      "https://quicknode.quicknode-ipfs.com/ipfs/QmaoyFJjwbkMSTwWurK4tYFxWd3CDnMLu2KustmWL8Ruks",
+    dev: "https://quicknode.quicknode-ipfs.com/ipfs/QmaoyFJjwbkMSTwWurK4tYFxWd3CDnMLu2KustmWL8Ruks",
+    local:
+      "https://quicknode.quicknode-ipfs.com/ipfs/QmaoyFJjwbkMSTwWurK4tYFxWd3CDnMLu2KustmWL8Ruks",
+    branch:
+      "https://quicknode.quicknode-ipfs.com/ipfs/QmaoyFJjwbkMSTwWurK4tYFxWd3CDnMLu2KustmWL8Ruks",
+  },
   IDScanSelfie_LD: {
     prod: "https://quicknode.quicknode-ipfs.com/ipfs/QmYoDQKUHSMEZk2ZwaXWvdHbYoLXShVWxRdsu1jsXxhN6F",
     stage:
