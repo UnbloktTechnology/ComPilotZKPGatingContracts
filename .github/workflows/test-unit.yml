@@ -10,8 +10,8 @@ env:
   POLYGON_MAINNET_PROVIDER_URL: ${{ secrets.POLYGON_MAINNET_PROVIDER_URL }}
   DEPLOYMENT_MNEMONIC: ${{ secrets.DEPLOYMENT_MNEMONIC }}
   SALT: ${{ secrets.SALT }}
-  PNPM_VERSION: 8.15.2
-  NODE_VERSION: 20.11.0
+  PNPM_VERSION: 9.2.0
+  NODE_VERSION: 20.14
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -23,6 +23,8 @@ jobs:
     name: Unit tests
     environment:
       name: vc-dev
+    env:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - uses: actions/checkout@v4
         with:

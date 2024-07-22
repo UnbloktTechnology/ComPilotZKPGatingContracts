@@ -23,8 +23,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [20.11.0]
-        pnpm-version: [8.15.2]
+        node-version: [20.14]
+        pnpm-version: [9.2.0]
     env:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
